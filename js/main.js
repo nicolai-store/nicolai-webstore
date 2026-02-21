@@ -226,6 +226,49 @@ function setImg(imgElement) {
   imgElement.classList.add('active');
 }
 
+// ========== PARTÍCULAS DEL HEADER ==========
+
+/**
+ * Anima partículas flotantes en el canvas del header
+ */
+function initHeaderParticles() {
+  const canvas = document.getElementById('headerCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const particles = Array.from({ length: 45 }, () => ({
+    x:     Math.random(),
+    y:     Math.random(),
+    r:     Math.random() * 1.4 + 0.4,
+    dx:    (Math.random() - 0.5) * 0.3,
+    dy:    (Math.random() - 0.5) * 0.3,
+    alpha: Math.random() * 0.45 + 0.08,
+  }));
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      p.x += p.dx / canvas.width;
+      p.y += p.dy / canvas.height;
+      if (p.x < 0 || p.x > 1) p.dx *= -1;
+      if (p.y < 0 || p.y > 1) p.dy *= -1;
+      ctx.beginPath();
+      ctx.arc(p.x * canvas.width, p.y * canvas.height, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 138, 0, ${p.alpha})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+}
+
 // ========== EVENT LISTENERS ==========
 
 /**
@@ -268,6 +311,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Inicializar carrusel de banners
   initBannerSlider();
+
+  // Partículas del header
+  initHeaderParticles();
   
   // Pausar carrusel cuando el usuario está en otra pestaña
   document.addEventListener('visibilitychange', function() {

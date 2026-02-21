@@ -71,11 +71,23 @@
 
 <!-- ========== HEADER ========== -->
 <header>
+
+  <!-- Partículas flotantes animadas -->
+  <canvas id="headerCanvas"></canvas>
+
+  <!-- Esquinas HUD -->
+  <div class="hud-corner hud-tl"></div>
+  <div class="hud-corner hud-tr"></div>
+  <div class="hud-corner hud-bl"></div>
+  <div class="hud-corner hud-br"></div>
+
   <div class="header-container">
-    
+
     <!-- Logo y Título -->
     <div class="logo-section">
-      <div class="logo-container">
+      <!-- Anillo giratorio alrededor del logo -->
+      <div class="logo-ring-wrapper">
+        <div class="logo-ring"></div>
         <img src="images/logo.png" alt="Nicolai Store Logo" class="site-logo">
       </div>
       <div class="title-wrapper">
@@ -83,6 +95,8 @@
         <h1>Nicolai Store</h1>
         <span class="flag-emoji">🎌</span>
       </div>
+      <!-- Texto japonés bajo el nombre -->
+      <div class="store-tagline-jp">ニコライストア — アニメフィギュア専門店</div>
       <div class="subtitle">
         <span>🏅 100% Original</span>
         <span>📦 Envío a todo Perú</span>
@@ -90,18 +104,18 @@
       </div>
     </div>
 
-    <!-- Redes Sociales -->
+    <!-- Redes Sociales (clases fb/ig/tt/wa para hover colorizado) -->
     <div class="socials">
-      <a href="https://facebook.com/nicolaistore" target="_blank" rel="noopener" aria-label="Facebook" class="social-btn">
+      <a href="https://facebook.com/nicolaistore" target="_blank" rel="noopener" aria-label="Facebook" class="social-btn fb">
         <i class="fab fa-facebook"></i> Facebook
       </a>
-      <a href="https://instagram.com/nicolaistore" target="_blank" rel="noopener" aria-label="Instagram" class="social-btn">
+      <a href="https://instagram.com/nicolaistore" target="_blank" rel="noopener" aria-label="Instagram" class="social-btn ig">
         <i class="fab fa-instagram"></i> Instagram
       </a>
-      <a href="https://tiktok.com/@nicolaistore" target="_blank" rel="noopener" aria-label="TikTok" class="social-btn">
+      <a href="https://tiktok.com/@nicolaistore" target="_blank" rel="noopener" aria-label="TikTok" class="social-btn tt">
         <i class="fab fa-tiktok"></i> TikTok
       </a>
-      <a href="https://wa.me/51967311920" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-btn">
+      <a href="https://wa.me/51967311920" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-btn wa">
         <i class="fab fa-whatsapp"></i> WhatsApp
       </a>
     </div>
