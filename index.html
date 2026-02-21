@@ -90,62 +90,6 @@
       </div>
     </div>
 
-    <!-- Banner Carrusel -->
-    <div class="banner-container">
-      <div class="banner-slider">
-        
-        <!-- Slides del Banner -->
-        <div class="banner-slides">
-          
-          <!-- Slide 1 -->
-          <div class="banner-slide active">
-            <img src="images/banners/banner-1.jpg" alt="Nicolai Store - Figuras Originales de Anime">
-            <div class="banner-overlay">
-              <div class="banner-text">Las mejores figuras de anime</div>
-              <div class="banner-subtext">Productos originales y de colección</div>
-            </div>
-          </div>
-          
-          <!-- Slide 2 -->
-          <div class="banner-slide">
-            <img src="images/banners/banner-2.jpg" alt="Nuevos Arrivals - Figuras Exclusivas">
-            <div class="banner-overlay">
-              <div class="banner-text">Nuevos arrivals cada semana</div>
-              <div class="banner-subtext">Stock limitado - ¡No te lo pierdas!</div>
-            </div>
-          </div>
-          
-          <!-- Slide 3 -->
-          <div class="banner-slide">
-            <img src="images/banners/banner-3.jpg" alt="Envíos a todo el Perú">
-            <div class="banner-overlay">
-              <div class="banner-text">Envíos a todo el Perú</div>
-              <div class="banner-subtext">Compra segura y garantizada</div>
-            </div>
-          </div>
-          
-          <!-- Puedes agregar más slides aquí -->
-          
-        </div>
-        
-        <!-- Controles de navegación -->
-        <div class="banner-controls">
-          <button class="banner-btn" onclick="prevSlide()" aria-label="Banner anterior">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="banner-btn" onclick="nextSlide()" aria-label="Siguiente banner">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </div>
-        
-        <!-- Indicadores (dots) -->
-        <div class="banner-indicators" id="bannerIndicators">
-          <!-- Los dots se generan dinámicamente con JavaScript -->
-        </div>
-        
-      </div>
-    </div>
-
     <!-- Redes Sociales -->
     <div class="socials">
       <a href="https://facebook.com/nicolaistore" target="_blank" rel="noopener" aria-label="Facebook" class="social-btn">
@@ -164,6 +108,63 @@
 
   </div>
 </header>
+
+<!-- ========== BANNER CARRUSEL ========== -->
+<section id="banner">
+  <div class="banner-container">
+    <div class="banner-slider">
+
+      <!-- Slides del Banner -->
+      <!-- Para agregar más slides: copia un bloque banner-slide y ajusta imagen y textos -->
+      <div class="banner-slides">
+
+        <!-- Slide 1 -->
+        <div class="banner-slide active">
+          <img src="images/banners/banner-1.jpg" alt="Nicolai Store - Figuras Originales de Anime">
+          <div class="banner-overlay">
+            <div class="banner-text">Las mejores figuras de anime</div>
+            <div class="banner-subtext">Productos originales y de colección</div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="banner-slide">
+          <img src="images/banners/banner-2.jpg" alt="Nuevos Arrivals - Figuras Exclusivas">
+          <div class="banner-overlay">
+            <div class="banner-text">Nuevos arrivals cada semana</div>
+            <div class="banner-subtext">Stock limitado - ¡No te lo pierdas!</div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="banner-slide">
+          <img src="images/banners/banner-3.jpg" alt="Envíos a todo el Perú">
+          <div class="banner-overlay">
+            <div class="banner-text">Envíos a todo el Perú</div>
+            <div class="banner-subtext">Compra segura y garantizada</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Controles de navegación -->
+      <div class="banner-controls">
+        <button class="banner-btn" onclick="prevSlide()" aria-label="Banner anterior">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="banner-btn" onclick="nextSlide()" aria-label="Siguiente banner">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <!-- Indicadores (dots) -->
+      <div class="banner-indicators" id="bannerIndicators">
+        <!-- Los dots se generan dinámicamente con JavaScript -->
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- ========== CATÁLOGO DE PRODUCTOS ========== -->
 <section id="catalog">
