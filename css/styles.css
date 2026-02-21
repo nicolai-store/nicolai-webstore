@@ -432,6 +432,7 @@ section {
 
 /* ---- Tarjeta en oferta ---- */
 .card--offer {
+  position: relative;
   border: 2px solid #ff4d4d;
   box-shadow: 0 0 16px rgba(255, 77, 77, 0.35);
 }
