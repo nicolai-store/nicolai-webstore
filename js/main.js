@@ -134,7 +134,7 @@ function openModal(btn) {
   // Precio: normal u oferta
   const priceOriginalBig = document.getElementById('priceOriginalBig');
   const priceBig = document.getElementById('priceBig');
-  const priceOriginalAttr = card.dataset.priceOriginal;
+  const priceOriginalAttr = card.querySelector('.price').dataset.original;
 
   if (priceOriginalAttr) {
     priceOriginalBig.innerText = priceOriginalAttr;

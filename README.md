@@ -165,22 +165,24 @@ Durante temporadas de descuento, aplica estos cambios a la tarjeta en `index.htm
 
 **Durante la oferta:**
 ```html
-<div class="card card--offer" data-price-original="S/ 459" ...>
+<div class="card card--offer" ...>
   ...
-  <div class="price-original">S/ 459</div>
-  <div class="price price--offer">S/ 350</div>
+  <div class="price price--offer" data-original="S/ 459">S/ 350</div>
 ```
+
+El precio tachado aparece solo a la izquierda del nuevo precio — no hay elemento HTML extra.
 
 ### Qué activa cada cambio
 
 | Cambio | Efecto visual |
 |---|---|
-| `class="card--offer"` | Borde rojo + badge animado "🔥 OFERTA" sobre la imagen |
-| `data-price-original="S/ 000"` | Precio tachado en el modal |
-| `<div class="price-original">` | Precio tachado en la tarjeta |
-| `<div class="price price--offer">` | Precio rebajado en rojo |
+| `class="card--offer"` (en el card) | Borde rojo + badge animado "🔥 OFERTA" sobre la imagen |
+| `class="price--offer"` (en el precio) | Precio rebajado en rojo |
+| `data-original="S/ 000"` (en el precio) | Precio tachado a la izquierda (tarjeta y modal) |
 
-**Para quitar la oferta:** revertir los 3 cambios (eliminar `card--offer`, `data-price-original`, y volver a `<div class="price">`).
+**Para quitar la oferta:**
+1. Quitar `card--offer` del class del card
+2. En el precio: volver a `class="price"` y eliminar `data-original`
 
 ---
 

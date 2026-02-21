@@ -458,18 +458,20 @@ section {
   50%       { transform: scale(1.07); box-shadow: 0 0 0 6px rgba(255, 77, 77, 0); }
 }
 
-/* Precio original tachado en la tarjeta */
-.price-original {
-  text-decoration: line-through;
-  color: #777;
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin: 2px 0 0;
-}
-
-/* Precio de oferta en la tarjeta (reemplaza .price) */
+/* Precio de oferta en la tarjeta: muestra el original tachado a la izquierda via CSS */
 .price--offer {
   color: #ff4d4d;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.price--offer::before {
+  content: attr(data-original);
+  text-decoration: line-through;
+  color: #777;
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
 /* Precio original tachado en el modal */

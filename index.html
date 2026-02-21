@@ -329,10 +329,9 @@
         </div>
       </div>
 
-      === EN OFERTA (agrega class="card--offer" y data-price-original) ===
+      === EN OFERTA (agrega class="card--offer" al card, y data-original al precio) ===
 
       <div class="card card--offer"
-           data-price-original="S/ 000"
            data-thumbnails="images/productos/producto-vista2.jpg, images/productos/producto-caja.jpg"
            data-specs='[
              {"icon":"fas fa-tag",       "label":"Marca",      "value":"Nombre marca"},
@@ -345,8 +344,7 @@
         </div>
         <div class="card-body">
           <h3>Nombre del Producto</h3>
-          <div class="price-original">S/ 000</div>
-          <div class="price price--offer">S/ 000</div>
+          <div class="price price--offer" data-original="S/ 000">S/ 000</div>
           <div class="stock">🟧 Stock: 1 unidad disponible</div>
           <div class="btn-group">
             <button class="btn btn-desc" onclick="openModal(this)">Ver descripción</button>
@@ -360,9 +358,10 @@
       - La imagen principal siempre se usa como primera miniatura
       - data-specs: Edita cada "value" con los datos reales del producto
       - Estado: "Sellado / Sin abrir"  o  "Abierto / Exhibido"
-      - Para activar oferta: añadir class="card--offer", data-price-original="S/ XXX",
-        cambiar <div class="price"> por .price-original (tachado) + .price.price--offer (rebajado)
-      - Para quitar oferta: revertir los cambios anteriores
+      - Para activar oferta: añadir "card--offer" al class del card,
+        y en el precio: class="price price--offer" data-original="S/ PRECIO_ANTES"
+      - Para quitar oferta: quitar "card--offer" del card,
+        y en el precio: volver a class="price" y eliminar data-original
     -->
 
   </div>
