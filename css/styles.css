@@ -436,6 +436,10 @@ section {
   box-shadow: 0 0 16px rgba(255, 77, 77, 0.35);
 }
 
+.card.card--offer:hover {
+  box-shadow: 0 16px 40px rgba(255, 77, 77, 0.45);
+}
+
 .card--offer::after {
   content: "🔥 OFERTA";
   position: absolute;
