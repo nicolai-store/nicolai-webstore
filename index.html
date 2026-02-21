@@ -32,7 +32,7 @@
   <meta name="twitter:image"       content="https://TU-DOMINIO.vercel.app/images/logo.png">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -60,7 +60,7 @@
       "addressCountry": "PE"
     },
     "sameAs": [
-      "https://www.facebook.com/nicolaistore",
+      "https://www.facebook.com/nicolai.otaku.store",
       "https://www.instagram.com/nicolaistore",
       "https://www.tiktok.com/@nicolaistore"
     ]
@@ -71,6 +71,12 @@
 
 <!-- ========== HEADER ========== -->
 <header>
+
+  <!-- Fondo con degradado radial naranja -->
+  <div class="header-bg"></div>
+
+  <!-- Efecto scanline sutil (CRT) -->
+  <div class="scanline"></div>
 
   <!-- Partículas flotantes animadas -->
   <canvas id="headerCanvas"></canvas>
@@ -88,39 +94,49 @@
       <!-- Anillo giratorio alrededor del logo -->
       <div class="logo-ring-wrapper">
         <div class="logo-ring"></div>
+        <div class="logo-ring-inner"></div>
         <img src="images/logo.png" alt="Nicolai Store Logo" class="site-logo">
       </div>
-      <div class="title-wrapper">
-        <span class="flag-emoji">🎌</span>
-        <h1>Nicolai Store</h1>
-        <span class="flag-emoji">🎌</span>
-      </div>
+      <!-- Nombre de la tienda con tipografía Bebas Neue -->
+      <h1>Nicolai <span>Store</span></h1>
       <!-- Texto japonés bajo el nombre -->
       <div class="store-tagline-jp">ニコライストア — アニメフィギュア専門店</div>
+      <!-- Badges HUD angulares -->
       <div class="subtitle">
-        <span>🏅 100% Original</span>
-        <span>📦 Envío a todo Perú</span>
-        <span>🔥 Stock limitado</span>
+        <span class="store-badge badge-orange">🏅 100% Original</span>
+        <span class="store-badge badge-white">📦 Envío a todo Perú</span>
+        <span class="store-badge badge-orange">🔥 Stock limitado</span>
       </div>
     </div>
 
-    <!-- Redes Sociales (clases fb/ig/tt/wa para hover colorizado) -->
+    <!-- Divisor entre badges y redes -->
+    <div class="header-divider"></div>
+
+    <!-- Redes Sociales con CSS variables por red -->
     <div class="socials">
-      <a href="https://facebook.com/nicolaistore" target="_blank" rel="noopener" aria-label="Facebook" class="social-btn fb">
+      <a href="https://www.facebook.com/nicolai.otaku.store" target="_blank" rel="noopener" aria-label="Facebook"
+         class="social-btn fb" style="--btn-color:#1877f2;--btn-rgb:24,119,242">
         <i class="fab fa-facebook"></i> Facebook
       </a>
-      <a href="https://instagram.com/nicolaistore" target="_blank" rel="noopener" aria-label="Instagram" class="social-btn ig">
+      <a href="https://instagram.com/nicolaistore" target="_blank" rel="noopener" aria-label="Instagram"
+         class="social-btn ig" style="--btn-color:#e1306c;--btn-rgb:225,48,108">
         <i class="fab fa-instagram"></i> Instagram
       </a>
-      <a href="https://tiktok.com/@nicolaistore" target="_blank" rel="noopener" aria-label="TikTok" class="social-btn tt">
+      <a href="https://tiktok.com/@nicolaistore" target="_blank" rel="noopener" aria-label="TikTok"
+         class="social-btn tt" style="--btn-color:#00f2ea;--btn-rgb:0,242,234">
         <i class="fab fa-tiktok"></i> TikTok
       </a>
-      <a href="https://wa.me/51967311920" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-btn wa">
+      <a href="https://wa.me/51967311920" target="_blank" rel="noopener" aria-label="WhatsApp"
+         class="social-btn wa" style="--btn-color:#25d366;--btn-rgb:37,211,102">
         <i class="fab fa-whatsapp"></i> WhatsApp
       </a>
     </div>
 
   </div>
+
+  <!-- Línea inferior con shimmer (reemplaza border-bottom) -->
+  <div class="header-border-bottom"></div>
+
 </header>
 
 <!-- ========== BANNER CARRUSEL ========== -->
@@ -186,7 +202,7 @@
 
     <!-- Producto 1 -->
     <div class="card card--offer"
-         data-thumbnails="images/productos/naruto-vista2.jpg, images/productos/naruto-vista3.jpg, images/productos/naruto-caja.jpg"
+         data-thumbnails="https://japandco.net/cdn/shop/files/ICHIBANKUJIONEPIECETAKUMINOKEIFUHAKYOKU-FIGURINEJEWELRYBONNEYLOTEJAPANDCO3_700x700.jpg?v=1743790888, https://japandco.net/cdn/shop/files/ICHIBANKUJIONEPIECETAKUMINOKEIFUHAKYOKU-FIGURINEJEWELRYBONNEYLOTEJAPANDCO1_700x700.jpg?v=1743790888, https://japandco.net/cdn/shop/files/ICHIBANKUJIONEPIECETAKUMINOKEIFUHAKYOKU-FIGURINEJEWELRYBONNEYLOTEJAPANDCO2_700x700.jpg?v=1743790888"
          data-specs='[
            {"icon":"fas fa-tag",       "label":"Marca",      "value":"Ichiban Kuji"},
            {"icon":"fas fa-film",      "label":"Franquicia", "value":"Black★Rock Shooter"},
@@ -194,11 +210,11 @@
            {"icon":"fas fa-medal",     "label":"Condición",  "value":"Caja 9/10 · Figura 10/10"}
          ]'>
       <div class="card-image">
-        <img src="images/productos/onepiece-bonney.jpg" alt="Figura Jewelry Bonney">
+        <img src="images/productos/bonney-master.jpg" alt="Jewelry Bonney">
       </div>
       <div class="card-body">
-        <h3>Itsuki Nakano Flower Apron - Movie: Five Bride Dreams Dreams</h3>
-        <div class="price price--offer" data-original="S/ 500">S/ 350</div>
+        <h3>Jewelry Bonney</h3>
+        <div class="price price--offer" data-original="S/ 150">S/ 120</div>
         <div class="stock">🟧 Stock: 1 unidad disponible</div>
         <div class="btn-group">
           <button class="btn btn-desc" onclick="openModal(this)">Ver descripción</button>
@@ -208,7 +224,7 @@
 
     <!-- Producto 2 -->
     <div class="card"
-         data-thumbnails="images/productos/zoro-vista2.jpg, images/productos/zoro-vista3.jpg"
+         data-thumbnails="https://media3.nin-nin-game.com/395000-pos_thickbox/tenitol-goddess-of-victory-nikke-alice-furyu-.jpg, https://media1.nin-nin-game.com/395001-pos_thickbox/tenitol-goddess-of-victory-nikke-alice-furyu-.jpg, https://media3.nin-nin-game.com/395004-pos_thickbox/tenitol-goddess-of-victory-nikke-alice-furyu-.jpg"
          data-specs='[
            {"icon":"fas fa-tag",       "label":"Marca",      "value":"Banpresto"},
            {"icon":"fas fa-film",      "label":"Franquicia", "value":"One Piece"},
@@ -216,12 +232,12 @@
            {"icon":"fas fa-medal",     "label":"Condición",  "value":"Caja 10/10 · Figura 10/10"}
          ]'>
       <div class="card-image">
-        <img src="images/productos/zoro-one-piece.jpg" alt="Figura Roronoa Zoro One Piece">
+        <img src="images/productos/alice-master.jpg" alt="Goddess NIKKE: ALICE">
       </div>
       <div class="card-body">
-        <h3>Figura One Piece Zoro</h3>
-        <div class="price">S/ 459</div>
-        <div class="stock">🟧 Stock: 1 unidad disponible</div>
+        <h3>Goddess NIKKE: ALICE</h3>
+        <div class="price">S/ 140</div>
+        <div class="stock">🟧 Stock: Vendido</div>
         <div class="btn-group">
           <button class="btn btn-desc" onclick="openModal(this)">Ver descripción</button>
         </div>
@@ -230,7 +246,7 @@
 
     <!-- Producto 3 -->
     <div class="card"
-         data-thumbnails="images/productos/goku-vista2.jpg, images/productos/goku-vista3.jpg, images/productos/goku-caja.jpg"
+         data-thumbnails="https://japandco.net/cdn/shop/files/ICHIBANKUJIDANDADANINTOTHECURSEDHOUSE_-FIGURINEMOMOAYASELOTBJAPANDCO3_700x700.jpg?v=1753168581, https://japandco.net/cdn/shop/files/ICHIBANKUJIDANDADANINTOTHECURSEDHOUSE_-FIGURINEMOMOAYASELOTBJAPANDCO1_700x700.jpg?v=1753168582, https://japandco.net/cdn/shop/files/ICHIBANKUJIDANDADANINTOTHECURSEDHOUSE_-FIGURINEMOMOAYASELOTBJAPANDCO2_700x700.jpg?v=1753168582"
          data-specs='[
            {"icon":"fas fa-tag",       "label":"Marca",      "value":"Banpresto"},
            {"icon":"fas fa-film",      "label":"Franquicia", "value":"Dragon Ball Super"},
@@ -238,11 +254,11 @@
            {"icon":"fas fa-medal",     "label":"Condición",  "value":"Caja 8/10 · Figura 10/10"}
          ]'>
       <div class="card-image">
-        <img src="images/productos/goku-ultra-instinct.jpg" alt="Figura Goku Ultra Instinct Dragon Ball">
+        <img src="images/productos/momo-master.jpg" alt="Momo Ayase">
       </div>
       <div class="card-body">
-        <h3>Figura Goku Ultra Instinct</h3>
-        <div class="price">S/ 499</div>
+        <h3>Momo Ayase</h3>
+        <div class="price">S/ 180</div>
         <div class="stock">🟧 Stock: 1 unidad disponible</div>
         <div class="btn-group">
           <button class="btn btn-desc" onclick="openModal(this)">Ver descripción</button>
@@ -252,7 +268,7 @@
 
     <!-- Producto 4 -->
     <div class="card"
-         data-thumbnails="images/productos/luffy-vista2.jpg, images/productos/luffy-vista3.jpg"
+         data-thumbnails="https://japandco.net/cdn/shop/files/ICHIBANKUJIDANDADANINTOTHECURSEDHOUSE_-FIGURINEOKARUN_TRANSFORMATION_LOTAJAPANDCO3_700x700.jpg?v=1753168700, https://japandco.net/cdn/shop/files/ICHIBANKUJIDANDADANINTOTHECURSEDHOUSE_-FIGURINEOKARUN_TRANSFORMATION_LOTAJAPANDCO1_700x700.jpg?v=1753168701, https://japandco.net/cdn/shop/files/ICHIBANKUJIDANDADANINTOTHECURSEDHOUSE_-FIGURINEOKARUN_TRANSFORMATION_LOTAJAPANDCO2_700x700.jpg?v=1753168701"
          data-specs='[
            {"icon":"fas fa-tag",       "label":"Marca",      "value":"Ichiban Kuji"},
            {"icon":"fas fa-film",      "label":"Franquicia", "value":"One Piece"},
@@ -260,55 +276,11 @@
            {"icon":"fas fa-medal",     "label":"Condición",  "value":"Caja 10/10 · Figura 10/10"}
          ]'>
       <div class="card-image">
-        <img src="images/productos/luffy-gear-5.jpg" alt="Figura Monkey D. Luffy Gear 5 One Piece">
+        <img src="images/productos/okarun-master.jpg" alt="Okarun - Ken Takakura">
       </div>
       <div class="card-body">
-        <h3>Figura Luffy Gear 5</h3>
-        <div class="price">S/ 549</div>
-        <div class="stock">🟧 Stock: 1 unidad disponible</div>
-        <div class="btn-group">
-          <button class="btn btn-desc" onclick="openModal(this)">Ver descripción</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Producto 5 -->
-    <div class="card"
-         data-thumbnails="images/productos/tanjiro-vista2.jpg, images/productos/tanjiro-caja.jpg"
-         data-specs='[
-           {"icon":"fas fa-tag",       "label":"Marca",      "value":"Aniplex"},
-           {"icon":"fas fa-film",      "label":"Franquicia", "value":"Demon Slayer"},
-           {"icon":"fas fa-box-open",  "label":"Estado",     "value":"Abierto / Exhibido"},
-           {"icon":"fas fa-medal",     "label":"Condición",  "value":"Caja 9/10 · Figura 10/10"}
-         ]'>
-      <div class="card-image">
-        <img src="images/productos/tanjiro-demon-slayer.jpg" alt="Figura Tanjiro Kamado Demon Slayer">
-      </div>
-      <div class="card-body">
-        <h3>Figura Tanjiro Demon Slayer</h3>
-        <div class="price">S/ 429</div>
-        <div class="stock">🟧 Stock: 1 unidad disponible</div>
-        <div class="btn-group">
-          <button class="btn btn-desc" onclick="openModal(this)">Ver descripción</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Producto 6 -->
-    <div class="card"
-         data-thumbnails="images/productos/eren-vista2.jpg, images/productos/eren-vista3.jpg, images/productos/eren-caja.jpg"
-         data-specs='[
-           {"icon":"fas fa-tag",       "label":"Marca",      "value":"Kotobukiya"},
-           {"icon":"fas fa-film",      "label":"Franquicia", "value":"Attack on Titan"},
-           {"icon":"fas fa-box-open",  "label":"Estado",     "value":"Sellado / Sin abrir"},
-           {"icon":"fas fa-medal",     "label":"Condición",  "value":"Caja 10/10 · Figura 10/10"}
-         ]'>
-      <div class="card-image">
-        <img src="images/productos/eren-attack-titan.jpg" alt="Figura Eren Yeager Attack on Titan">
-      </div>
-      <div class="card-body">
-        <h3>Figura Eren Attack on Titan</h3>
-        <div class="price">S/ 479</div>
+        <h3>Okarun - Ken Takakura</h3>
+        <div class="price">S/ 160</div>
         <div class="stock">🟧 Stock: 1 unidad disponible</div>
         <div class="btn-group">
           <button class="btn btn-desc" onclick="openModal(this)">Ver descripción</button>
@@ -470,7 +442,7 @@
           <div class="entregas-delivery-type"><i class="fas fa-truck"></i> A domicilio</div>
           <div class="entregas-delivery-title">Envío a todo el Perú</div>
           <p class="entregas-delivery-detail">
-            Coordinamos el envío por courier a tu dirección.<br>
+            Coordinamos el envío por Shalom a tu agencia más cercana.<br>
             <strong>Lima y provincias</strong> — costo según destino.
           </p>
         </div>
@@ -534,7 +506,7 @@
         <h4><i class="fas fa-share-alt"></i> Síguenos</h4>
         <p>Mantente al día con nuestras últimas figuras y ofertas exclusivas.</p>
         <div class="footer-social">
-          <a href="https://facebook.com/nicolaistore" target="_blank" rel="noopener" aria-label="Facebook">
+          <a href="https://www.facebook.com/nicolai.otaku.store" target="_blank" rel="noopener" aria-label="Facebook">
             <i class="fab fa-facebook-f"></i>
           </a>
           <a href="https://instagram.com/nicolaistore" target="_blank" rel="noopener" aria-label="Instagram">
@@ -556,13 +528,13 @@
 
     <!-- Footer Bottom -->
     <div class="footer-bottom">
-      <p>&copy; 2025 Nicolai Store. Todos los derechos reservados.</p>
+      <p>&copy; 2026 Nicolai Store. Todos los derechos reservados.</p>
       <p class="developer-credit">
         Desarrollado con <span class="heart">❤️</span> por 
-        <a href="https://github.com/tu-usuario" target="_blank" rel="noopener">Tu Nombre</a>
+        <a href="https://github.com/tu-usuario" target="_blank" rel="noopener">NicolaiSoft</a>
       </p>
       <p class="made-with-love">
-        Hecho con pasión para los fans del anime <span class="heart">❤️</span>
+        Hecho con pasión para los fans del anime <span class="heart"></span>
       </p>
     </div>
     

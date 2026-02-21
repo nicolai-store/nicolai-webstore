@@ -19,43 +19,63 @@ header {
   background: #08080f;
   padding: 0;
   text-align: center;
-  border-bottom: 2px solid #ff8a00;
   position: relative;
   overflow: hidden;
 }
 
-/* Líneas de velocidad estilo manga */
-header::before {
-  content: '';
+/* Fondo con brillo radial naranja en la parte superior */
+.header-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% -10%, rgba(255, 138, 0, 0.18) 0%, transparent 70%),
+    linear-gradient(160deg, #0a0a12 0%, #08080f 40%, #050508 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+/* Efecto scanline sutil (CRT) */
+.scanline {
   position: absolute;
   inset: 0;
   background: repeating-linear-gradient(
-    91deg,
+    to bottom,
     transparent,
-    transparent 80px,
-    rgba(255, 138, 0, 0.022) 80px,
-    rgba(255, 138, 0, 0.022) 81px
+    transparent 3px,
+    rgba(0, 0, 0, 0.07) 3px,
+    rgba(0, 0, 0, 0.07) 4px
   );
   pointer-events: none;
   z-index: 0;
 }
 
-/* Shimmer pulsante en la línea inferior */
-header::after {
-  content: '';
+/* Línea inferior naranja con shimmer deslizante */
+.header-border-bottom {
   position: absolute;
   bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 138, 0, 0.4);
+  overflow: hidden;
+  z-index: 3;
+}
+
+.header-border-bottom::after {
+  content: '';
+  position: absolute;
+  top: 0;
   left: -60%;
   width: 60%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #ff8a00, rgba(255,255,255,0.6), #ff8a00, transparent);
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #ff8a00, rgba(255,255,255,0.7), #ff8a00, transparent);
   animation: headerShimmer 3.5s ease-in-out infinite;
-  pointer-events: none;
 }
 
 @keyframes headerShimmer {
   0%   { left: -60%; }
-  100% { left: 140%; }
+  100% { left: 160%; }
 }
 
 /* Canvas de partículas flotantes */
@@ -71,15 +91,16 @@ header::after {
 /* Esquinas HUD en las 4 puntas */
 .hud-corner {
   position: absolute;
-  width: 22px;
-  height: 22px;
+  width: 60px;
+  height: 60px;
   z-index: 2;
   pointer-events: none;
+  opacity: 0.5;
 }
-.hud-tl { top: 12px;    left: 12px;  border-top: 2px solid #ff8a00;    border-left: 2px solid #ff8a00; }
-.hud-tr { top: 12px;    right: 12px; border-top: 2px solid #ff8a00;    border-right: 2px solid #ff8a00; }
-.hud-bl { bottom: 12px; left: 12px;  border-bottom: 2px solid #ff8a00; border-left: 2px solid #ff8a00; }
-.hud-br { bottom: 12px; right: 12px; border-bottom: 2px solid #ff8a00; border-right: 2px solid #ff8a00; }
+.hud-tl { top: 14px;    left: 14px;  border-top: 2px solid #ff8a00;    border-left: 2px solid #ff8a00; }
+.hud-tr { top: 14px;    right: 14px; border-top: 2px solid #ff8a00;    border-right: 2px solid #ff8a00; }
+.hud-bl { bottom: 14px; left: 14px;  border-bottom: 2px solid #ff8a00; border-left: 2px solid #ff8a00; }
+.hud-br { bottom: 14px; right: 14px; border-bottom: 2px solid #ff8a00; border-right: 2px solid #ff8a00; }
 
 .header-container {
   max-width: 1400px;
@@ -95,11 +116,11 @@ header::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  animation: fadeInDown 0.7s ease 0.1s both;
+  gap: 10px;
+  animation: dropIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
 }
 
-/* Anillo giratorio alrededor del logo */
+/* Anillo cónico giratorio alrededor del logo */
 .logo-ring-wrapper {
   position: relative;
   display: inline-flex;
@@ -109,26 +130,28 @@ header::after {
 
 .logo-ring {
   position: absolute;
-  inset: -12px;
+  inset: -14px;
   border-radius: 50%;
-  border: 2px solid transparent;
-  border-top-color: #ff8a00;
-  border-right-color: rgba(255, 138, 0, 0.35);
-  border-bottom-color: transparent;
-  border-left-color: rgba(255, 138, 0, 0.1);
-  animation: ringRotate 4s linear infinite;
+  background: conic-gradient(
+    from 0deg,
+    #ff8500 0deg 80deg,
+    rgba(255, 133, 0, 0.08) 80deg 170deg,
+    #ff8500 170deg 215deg,
+    rgba(255, 133, 0, 0.06) 215deg 330deg,
+    #ff8500 330deg 360deg
+  );
+  animation: ringRotate 5s linear infinite;
   pointer-events: none;
+  z-index: 1;
 }
 
-.logo-ring::after {
-  content: '';
+/* Máscara interior oscura que crea el efecto de anillo */
+.logo-ring-inner {
   position: absolute;
-  inset: 5px;
+  inset: -11px;
   border-radius: 50%;
-  border: 1px solid transparent;
-  border-bottom-color: rgba(255, 138, 0, 0.45);
-  border-left-color: rgba(255, 138, 0, 0.15);
-  animation: ringRotate 7s linear infinite reverse;
+  background: #08080f;
+  z-index: 2;
 }
 
 @keyframes ringRotate {
@@ -142,7 +165,7 @@ header::after {
   animation: logoFloat 3s ease-in-out infinite;
   filter: drop-shadow(0 0 14px rgba(255, 138, 0, 0.45));
   position: relative;
-  z-index: 1;
+  z-index: 3;
 }
 
 @keyframes logoFloat {
@@ -150,68 +173,87 @@ header::after {
   50%       { transform: translateY(-8px); }
 }
 
-.title-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  animation: fadeInDown 0.7s ease 0.2s both;
-}
-
 h1 {
   margin: 0;
-  font-size: 3rem;
+  font-family: 'Bebas Neue', 'Poppins', sans-serif;
+  font-size: clamp(48px, 7vw, 80px);
+  font-weight: 400;
   color: #fff;
-  text-shadow: 0 0 24px rgba(255, 138, 0, 0.5), 2px 2px 0 rgba(0, 0, 0, 0.6);
-  letter-spacing: 3px;
-  font-weight: 700;
-  position: relative;
-  display: inline-block;
+  letter-spacing: 5px;
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(255, 138, 0, 0.5), 3px 3px 0 rgba(0, 0, 0, 0.5);
+  animation: fadeUp 0.6s ease 0.25s both;
 }
 
-.flag-emoji {
-  font-size: 2rem;
-  animation: wave 2s ease-in-out infinite;
-  display: inline-block;
-}
-.flag-emoji:first-child { animation-delay: 0s; }
-.flag-emoji:last-child  { animation-delay: 0.3s; }
-
-@keyframes wave {
-  0%, 100% { transform: rotate(0deg); }
-  25%       { transform: rotate(15deg); }
-  75%       { transform: rotate(-15deg); }
+h1 span {
+  color: #ff8a00;
 }
 
 /* Texto japonés bajo el nombre de la tienda */
 .store-tagline-jp {
-  font-size: 0.72rem;
-  color: rgba(255, 138, 0, 0.65);
-  letter-spacing: 3px;
+  font-size: 0.7rem;
+  color: rgba(255, 138, 0, 0.6);
+  letter-spacing: 6px;
   font-weight: 400;
-  margin-top: -6px;
-  animation: fadeInDown 0.7s ease 0.3s both;
+  margin-top: -4px;
+  animation: fadeUp 0.6s ease 0.35s both;
 }
 
+/* Badges HUD angulares */
 .subtitle {
-  color: #bbb;
-  font-weight: 600;
-  font-size: 1.05rem;
-  margin-top: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
   flex-wrap: wrap;
-  animation: fadeInDown 0.7s ease 0.4s both;
+  margin-top: 4px;
+  animation: fadeUp 0.6s ease 0.45s both;
 }
 
-.subtitle span {
-  display: flex;
+.store-badge {
+  display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
 }
 
-/* Animaciones de entrada escalonadas */
+.store-badge.badge-orange {
+  background: rgba(255, 138, 0, 0.1);
+  border: 1px solid rgba(255, 138, 0, 0.45);
+  color: #ff8a00;
+}
+
+.store-badge.badge-white {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ccc;
+}
+
+/* Divisor entre badges y redes */
+.header-divider {
+  width: 50%;
+  max-width: 280px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 138, 0, 0.45), transparent);
+  margin: 6px auto;
+  animation: fadeUp 0.6s ease 0.5s both;
+}
+
+/* Animaciones de entrada */
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-28px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes fadeInDown {
   from { opacity: 0; transform: translateY(-16px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -392,36 +434,51 @@ h1 {
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-top: 10px;
+  margin-top: 0;
   flex-wrap: wrap;
-  animation: fadeInDown 0.7s ease 0.5s both;
+  animation: fadeUp 0.6s ease 0.55s both;
 }
 
 .social-btn {
-  color: #bbb;
+  position: relative;
+  color: #999;
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 8px;
   font-weight: 700;
   padding: 9px 20px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 25px;
-  transition: all 0.3s;
+  border-radius: 20px;
+  transition: color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
   font-size: 0.9rem;
+  overflow: hidden;
+}
+
+/* Línea inferior deslizante al hacer hover */
+.social-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--btn-color, #ff8a00);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
 }
 
 .social-btn:hover {
-  transform: translateY(-3px);
-  color: #fff;
+  color: var(--btn-color, #ff8a00);
+  border-color: var(--btn-color, #ff8a00);
+  box-shadow: 0 4px 18px rgba(var(--btn-rgb, 255, 138, 0), 0.3);
+  transform: translateY(-2px);
 }
 
-/* Hover colorizado por red social */
-.social-btn.fb:hover { background: #1877f2; border-color: #1877f2; box-shadow: 0 5px 18px rgba(24, 119, 242, 0.45); }
-.social-btn.ig:hover { background: linear-gradient(135deg, #833ab4, #e1306c, #fcb045); border-color: #e1306c; box-shadow: 0 5px 18px rgba(225, 48, 108, 0.45); }
-.social-btn.tt:hover { background: #010101; border-color: #00f2ea; box-shadow: 0 5px 18px rgba(0, 242, 234, 0.4); color: #00f2ea; }
-.social-btn.wa:hover { background: #25d366; border-color: #25d366; box-shadow: 0 5px 18px rgba(37, 211, 102, 0.45); color: #fff; }
+.social-btn:hover::after {
+  transform: scaleX(1);
+}
 
 .social-btn i {
   font-size: 1.1rem;
@@ -946,18 +1003,6 @@ section {
     height: 110px;
   }
   
-  .flag-emoji {
-    font-size: 1.5rem;
-  }
-  
-  .logo-container {
-    gap: 12px;
-  }
-  
-  .title-wrapper {
-    gap: 10px;
-  }
-  
   .footer-grid {
     grid-template-columns: 1fr;
     text-align: center;
@@ -1269,21 +1314,17 @@ footer::before {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, #FF8C00, #e65c00);
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 30px;
-  font-size: 14px;
+  background: rgba(255, 138, 0, 0.1);
+  color: #ff8a00;
+  padding: 9px 20px;
+  border-radius: 20px;
+  font-size: 0.85rem;
   font-weight: 700;
   align-self: flex-start;
-  box-shadow: 0 4px 15px rgba(255, 138, 0, 0.4);
-  animation: entregas-pulse 2s ease-in-out infinite;
+  border: 1px solid rgba(255, 138, 0, 0.45);
+  letter-spacing: 0.3px;
 }
 
-@keyframes entregas-pulse {
-  0%, 100% { box-shadow: 0 4px 15px rgba(255, 138, 0, 0.4); }
-  50%       { box-shadow: 0 4px 28px rgba(255, 138, 0, 0.7); }
-}
 
 .entregas-map-side {
   padding: 0 20px;

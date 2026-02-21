@@ -230,6 +230,7 @@ function setImg(imgElement) {
 
 /**
  * Anima partículas flotantes en el canvas del header
+ * 55 partículas con drift ascendente y dos colores (naranja + dorado)
  */
 function initHeaderParticles() {
   const canvas = document.getElementById('headerCanvas');
@@ -243,13 +244,16 @@ function initHeaderParticles() {
   resize();
   window.addEventListener('resize', resize);
 
-  const particles = Array.from({ length: 45 }, () => ({
+  const COLORS = ['255,115,0', '255,200,80'];
+
+  const particles = Array.from({ length: 55 }, () => ({
     x:     Math.random(),
     y:     Math.random(),
-    r:     Math.random() * 1.4 + 0.4,
-    dx:    (Math.random() - 0.5) * 0.3,
-    dy:    (Math.random() - 0.5) * 0.3,
-    alpha: Math.random() * 0.45 + 0.08,
+    r:     Math.random() * 1.5 + 0.5,
+    dx:    (Math.random() - 0.5) * 0.25,
+    dy:    -(Math.random() * 0.35 + 0.15), // deriva ascendente
+    alpha: Math.random() * 0.5 + 0.1,
+    color: COLORS[Math.floor(Math.random() * COLORS.length)],
   }));
 
   function animate() {
@@ -258,10 +262,10 @@ function initHeaderParticles() {
       p.x += p.dx / canvas.width;
       p.y += p.dy / canvas.height;
       if (p.x < 0 || p.x > 1) p.dx *= -1;
-      if (p.y < 0 || p.y > 1) p.dy *= -1;
+      if (p.y < 0) p.y = 1; // reaparece por abajo al salir por arriba
       ctx.beginPath();
       ctx.arc(p.x * canvas.width, p.y * canvas.height, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255, 138, 0, ${p.alpha})`;
+      ctx.fillStyle = `rgba(${p.color}, ${p.alpha})`;
       ctx.fill();
     });
     requestAnimationFrame(animate);
@@ -275,8 +279,7 @@ function initHeaderParticles() {
  * Inicialización al cargar el DOM
  */
 /**
- * Mueve las tarjetas con estado "Vendido" al final del catálogo.
- * Llamar cada vez que se actualice el catálogo.
+ * Ordena el catálogo: ofertas primero, luego disponibles, vendidos al final.
  */
 function sortProducts() {
   const catalog = document.querySelector('.catalog');
@@ -292,9 +295,10 @@ function sortProducts() {
     }
   });
 
-  const available = cards.filter(c => !c.classList.contains('card--sold'));
+  const offers    = cards.filter(c => !c.classList.contains('card--sold') &&  c.classList.contains('card--offer'));
+  const available = cards.filter(c => !c.classList.contains('card--sold') && !c.classList.contains('card--offer'));
   const sold      = cards.filter(c =>  c.classList.contains('card--sold'));
-  [...available, ...sold].forEach(card => catalog.appendChild(card));
+  [...offers, ...available, ...sold].forEach(card => catalog.appendChild(card));
 }
 
 // ========== EVENT LISTENERS ==========

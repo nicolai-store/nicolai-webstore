@@ -149,6 +149,8 @@ Cambia el texto del stock en la tarjeta (`index.html`):
 
 **El producto se moverá automáticamente al final del catálogo** al recargar la página, y mostrará una etiqueta roja "VENDIDO" sobre la imagen.
 
+> El orden automático del catálogo es: **🔥 Ofertas → disponibles → 🔴 Vendidos**
+
 Cuando quieras eliminarlo definitivamente, borra el bloque `<div class="card">...</div>` completo.
 
 ---
@@ -177,7 +179,7 @@ El precio tachado aparece solo a la izquierda del nuevo precio — no hay elemen
 
 | Cambio | Efecto visual |
 |---|---|
-| `class="card--offer"` (en el card) | Borde rojo + badge animado "🔥 OFERTA" sobre la imagen |
+| `class="card--offer"` (en el card) | Borde rojo + badge animado "🔥 OFERTA" sobre la imagen + **se mueve al inicio del catálogo** |
 | `class="price--offer"` (en el precio) | Precio rebajado en rojo |
 | `data-original="S/ 000"` (en el precio) | Precio tachado a la izquierda (tarjeta y modal) |
 
