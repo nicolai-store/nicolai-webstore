@@ -1092,108 +1092,31 @@ footer::before {
 }
 
 /* ========================================
-   SECCIÓN ENTREGAS
+   ENTREGAS (integrado en el footer)
    ======================================== */
-#entregas {
-  padding: 60px 20px;
-  background: #111;
-}
-
-.entregas-container {
-  max-width: 900px;
-  margin: 0 auto;
-  background: #0d0d0d;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 2px solid #ff8a00;
-  box-shadow: 0 0 40px rgba(255, 138, 0, 0.2);
-}
-
-/* --- Header --- */
-.entregas-header {
-  background: linear-gradient(135deg, #FF8C00 0%, #FF6B00 50%, #e65c00 100%);
-  padding: 22px 36px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  overflow: hidden;
-}
-
-.entregas-header::before {
-  content: '';
-  position: absolute;
-  top: -30px; right: -30px;
-  width: 150px; height: 150px;
-  background: rgba(255, 255, 255, 0.07);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.entregas-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  z-index: 1;
-}
-
-.entregas-brand img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-}
-
-.entregas-store-name {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 1px;
-}
-
-.entregas-badges {
-  display: flex;
-  gap: 10px;
-  z-index: 1;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-.entregas-badge {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-
-/* --- Cuerpo: grid 2 columnas --- */
-.entregas-body {
+.footer-entregas {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 0;
 }
 
-/* Columna izquierda */
 .entregas-info {
-  padding: 32px;
-  border-right: 1px solid #2a2a2a;
+  padding: 0 20px;
+  border-right: 1px solid rgba(255, 138, 0, 0.2);
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 .entregas-section-title {
+  color: #ff8a00;
   font-size: 1.2rem;
   font-weight: 700;
-  color: #ff8a00;
-  letter-spacing: 1px;
+  margin: 0;
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 0;
+  gap: 8px;
 }
 
 .entregas-section-title::after {
@@ -1265,19 +1188,17 @@ footer::before {
   50%       { box-shadow: 0 4px 28px rgba(255, 138, 0, 0.7); }
 }
 
-/* Columna derecha: mapa */
 .entregas-map-side {
-  padding: 28px;
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
 .entregas-map-title {
-  font-size: 1rem;
-  font-weight: 700;
   color: #ff8a00;
-  letter-spacing: 1px;
+  font-size: 1.2rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1288,7 +1209,7 @@ footer::before {
   overflow: hidden;
   border: 2px solid #2a2a2a;
   position: relative;
-  height: 220px;
+  height: 260px;
 }
 
 .map-frame-container iframe {
@@ -1348,64 +1269,21 @@ footer::before {
   color: #888;
 }
 
-/* --- Pie de sección --- */
-.entregas-footer-strip {
-  background: #0a0a0a;
-  border-top: 1px solid #2a2a2a;
-  padding: 14px 36px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 8px;
-  font-size: 12px;
-  color: #666;
-}
-
-.entregas-footer-strip strong {
-  color: #ff8a00;
-}
-
-.entregas-social-hint {
-  color: #555;
-  font-weight: 700;
-}
-
-/* --- Responsive --- */
-@media (max-width: 640px) {
-  #entregas {
-    padding: 40px 15px;
-  }
-
-  .entregas-body {
+/* --- Responsive entregas --- */
+@media (max-width: 768px) {
+  .footer-entregas {
     grid-template-columns: 1fr;
-  }
-
-  .entregas-header {
-    flex-direction: column;
-    gap: 14px;
-    padding: 18px 20px;
-    text-align: center;
-  }
-
-  .entregas-badges {
-    justify-content: center;
+    gap: 30px;
   }
 
   .entregas-info {
     border-right: none;
-    border-bottom: 1px solid #2a2a2a;
-    padding: 24px 20px;
+    border-bottom: 1px solid rgba(255, 138, 0, 0.2);
+    padding: 0 0 24px;
   }
 
   .entregas-map-side {
-    padding: 20px;
-  }
-
-  .entregas-footer-strip {
-    flex-direction: column;
-    text-align: center;
-    padding: 14px 20px;
+    padding: 0;
   }
 }
 

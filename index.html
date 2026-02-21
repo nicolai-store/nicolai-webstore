@@ -429,90 +429,6 @@
   </div>
 </div>
 
-<!-- ========== SECCIÓN ENTREGAS ========== -->
-<section id="entregas" aria-label="Información de entregas y ubicación">
-  <div class="entregas-container">
-
-    <!-- Header -->
-    <div class="entregas-header">
-      <div class="entregas-brand">
-        <img src="images/logo-small.png" alt="Nicolai Store">
-        <span class="entregas-store-name">Nicolai Store</span>
-      </div>
-      <div class="entregas-badges">
-        <span class="entregas-badge">✅ 100% Original</span>
-        <span class="entregas-badge">🚚 Envío a todo Perú</span>
-      </div>
-    </div>
-
-    <!-- Cuerpo: info + mapa -->
-    <div class="entregas-body">
-
-      <!-- Columna izquierda: opciones de entrega -->
-      <div class="entregas-info">
-        <h2 class="entregas-section-title"><i class="fas fa-box"></i> Entregas</h2>
-
-        <!-- Entrega presencial -->
-        <!-- Para cambiar el lugar: edita "delivery-title" y "delivery-detail" -->
-        <div class="entregas-delivery-card">
-          <div class="entregas-delivery-type"><i class="fas fa-map-marker-alt"></i> Presencial</div>
-          <div class="entregas-delivery-title">Feria Grau</div>
-          <p class="entregas-delivery-detail">
-            Recoge tu figura directamente con nosotros.<br>
-            <strong>Todos los sábados</strong> — sin costo adicional.
-          </p>
-        </div>
-
-        <!-- Envío a domicilio -->
-        <div class="entregas-delivery-card">
-          <div class="entregas-delivery-type"><i class="fas fa-truck"></i> A domicilio</div>
-          <div class="entregas-delivery-title">Envío a todo el Perú</div>
-          <p class="entregas-delivery-detail">
-            Coordinamos el envío por courier a tu dirección.<br>
-            <strong>Lima y provincias</strong> — costo según destino.
-          </p>
-        </div>
-
-        <div class="entregas-pill">
-          <i class="fas fa-calendar-alt"></i> Entrega presencial: cada sábado
-        </div>
-      </div>
-
-      <!-- Columna derecha: mapa -->
-      <!-- Para cambiar la ubicación del mapa: edita el src del iframe y los textos de entregas-location -->
-      <div class="entregas-map-side">
-        <div class="entregas-map-title"><i class="fas fa-map-marked-alt"></i> ¿Dónde encontrarnos?</div>
-
-        <div class="map-frame-container">
-          <span class="map-pin-badge">📍 La Feria Grau</span>
-          <iframe
-            src="https://maps.google.com/maps?q=feria+grau+lima+peru&hl=es&z=16&output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Ubicación de Nicolai Store en La Feria Grau, Lima">
-          </iframe>
-        </div>
-
-        <address class="entregas-location">
-          <i class="fas fa-map-marker-alt"></i>
-          <div>
-            <strong>La Feria Grau — Lima</strong>
-            <span>Av. Grau con Vía Expresa · Cercado de Lima</span>
-          </div>
-        </address>
-      </div>
-
-    </div>
-
-    <!-- Pie de sección -->
-    <div class="entregas-footer-strip">
-      <span>🎌 Figuras anime originales · <strong>Stock limitado cada semana</strong></span>
-      <span class="entregas-social-hint">Facebook · Instagram · TikTok · WhatsApp</span>
-    </div>
-
-  </div>
-</section>
-
 <!-- ========== FOOTER ========== -->
 <footer>
   <div class="footer-container">
@@ -562,7 +478,67 @@
     
     <!-- Línea divisoria -->
     <div class="footer-divider"></div>
-    
+
+    <!-- Entregas y Ubicación -->
+    <!-- Para cambiar el lugar de entrega: edita "entregas-delivery-title" y "entregas-delivery-detail" -->
+    <!-- Para cambiar el mapa: edita el src del iframe y el texto de "entregas-location" -->
+    <div class="footer-entregas">
+
+      <!-- Columna izquierda: opciones de entrega -->
+      <div class="entregas-info">
+        <h3 class="entregas-section-title"><i class="fas fa-box"></i> Entregas</h3>
+
+        <div class="entregas-delivery-card">
+          <div class="entregas-delivery-type"><i class="fas fa-map-marker-alt"></i> Presencial</div>
+          <div class="entregas-delivery-title">Feria Grau</div>
+          <p class="entregas-delivery-detail">
+            Recoge tu figura directamente con nosotros.<br>
+            <strong>Todos los sábados</strong> — sin costo adicional.
+          </p>
+        </div>
+
+        <div class="entregas-delivery-card">
+          <div class="entregas-delivery-type"><i class="fas fa-truck"></i> A domicilio</div>
+          <div class="entregas-delivery-title">Envío a todo el Perú</div>
+          <p class="entregas-delivery-detail">
+            Coordinamos el envío por courier a tu dirección.<br>
+            <strong>Lima y provincias</strong> — costo según destino.
+          </p>
+        </div>
+
+        <div class="entregas-pill">
+          <i class="fas fa-calendar-alt"></i> Entrega presencial: cada sábado
+        </div>
+      </div>
+
+      <!-- Columna derecha: mapa -->
+      <div class="entregas-map-side">
+        <div class="entregas-map-title"><i class="fas fa-map-marked-alt"></i> ¿Dónde encontrarnos?</div>
+
+        <div class="map-frame-container">
+          <span class="map-pin-badge">📍 La Feria Grau</span>
+          <iframe
+            src="https://maps.google.com/maps?q=feria+grau+lima+peru&hl=es&z=16&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación de Nicolai Store en La Feria Grau, Lima">
+          </iframe>
+        </div>
+
+        <address class="entregas-location">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <strong>La Feria Grau — Lima</strong>
+            <span>Av. Grau con Vía Expresa · Cercado de Lima</span>
+          </div>
+        </address>
+      </div>
+
+    </div>
+
+    <!-- Línea divisoria -->
+    <div class="footer-divider"></div>
+
     <!-- Footer Bottom -->
     <div class="footer-bottom">
       <p>&copy; 2025 Nicolai Store. Todos los derechos reservados.</p>
