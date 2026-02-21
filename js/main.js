@@ -126,11 +126,25 @@ function openModal(btn) {
 
   // Mostrar modal
   document.getElementById('modal').style.display = 'flex';
-  
+
   // Actualizar información
   document.getElementById('modalTitle').innerText = title;
-  document.getElementById('priceBig').innerText = price;
   document.getElementById('mainImg').src = mainImg;
+
+  // Precio: normal u oferta
+  const priceOriginalBig = document.getElementById('priceOriginalBig');
+  const priceBig = document.getElementById('priceBig');
+  const priceOriginalAttr = card.dataset.priceOriginal;
+
+  if (priceOriginalAttr) {
+    priceOriginalBig.innerText = priceOriginalAttr;
+    priceOriginalBig.style.display = 'block';
+    priceBig.classList.add('price-big--offer');
+  } else {
+    priceOriginalBig.style.display = 'none';
+    priceBig.classList.remove('price-big--offer');
+  }
+  priceBig.innerText = price;
   
   // Actualizar miniaturas dinámicamente
   const thumbsContainer = document.getElementById('thumbsContainer');

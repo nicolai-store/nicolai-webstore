@@ -430,6 +430,77 @@ section {
   pointer-events: none !important;
 }
 
+/* ---- Tarjeta en oferta ---- */
+.card--offer {
+  border: 2px solid #ff4d4d;
+  box-shadow: 0 0 16px rgba(255, 77, 77, 0.35);
+}
+
+.card--offer::after {
+  content: "🔥 OFERTA";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #ff2d2d, #ff8a00);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 20px;
+  letter-spacing: 1.5px;
+  pointer-events: none;
+  z-index: 5;
+  animation: offerPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes offerPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.5); }
+  50%       { transform: scale(1.07); box-shadow: 0 0 0 6px rgba(255, 77, 77, 0); }
+}
+
+/* Precio original tachado en la tarjeta */
+.price-original {
+  text-decoration: line-through;
+  color: #777;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 2px 0 0;
+}
+
+/* Precio de oferta en la tarjeta (reemplaza .price) */
+.price--offer {
+  color: #ff4d4d;
+}
+
+/* Precio original tachado en el modal */
+.price-original-big {
+  text-decoration: line-through;
+  color: #777;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: none;
+}
+
+/* Precio de oferta en el modal */
+.price-big--offer {
+  color: #ff4d4d !important;
+  text-shadow: 0 2px 10px rgba(255, 77, 77, 0.35) !important;
+}
+
+/* Badge de oferta dentro del modal */
+.offer-badge-modal {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff2d2d, #ff8a00);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
 .card-body {
   padding: 20px;
   flex-grow: 1;

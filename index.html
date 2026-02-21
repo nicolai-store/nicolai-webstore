@@ -305,9 +305,9 @@
       ========================================
       PLANTILLA PARA AGREGAR NUEVOS PRODUCTOS
       ========================================
-      
-      Copia este bloque y modifica los valores:
-      
+
+      === PRECIO NORMAL ===
+
       <div class="card"
            data-thumbnails="images/productos/producto-vista2.jpg, images/productos/producto-caja.jpg"
            data-specs='[
@@ -329,12 +329,40 @@
         </div>
       </div>
 
+      === EN OFERTA (agrega class="card--offer" y data-price-original) ===
+
+      <div class="card card--offer"
+           data-price-original="S/ 000"
+           data-thumbnails="images/productos/producto-vista2.jpg, images/productos/producto-caja.jpg"
+           data-specs='[
+             {"icon":"fas fa-tag",       "label":"Marca",      "value":"Nombre marca"},
+             {"icon":"fas fa-film",      "label":"Franquicia", "value":"Nombre franquicia"},
+             {"icon":"fas fa-box-open",  "label":"Estado",     "value":"Sellado / Sin abrir"},
+             {"icon":"fas fa-medal",     "label":"Condición",  "value":"Caja 10/10 · Figura 10/10"}
+           ]'>
+        <div class="card-image">
+          <img src="images/productos/tu-producto.jpg" alt="Descripción del producto">
+        </div>
+        <div class="card-body">
+          <h3>Nombre del Producto</h3>
+          <div class="price-original">S/ 000</div>
+          <div class="price price--offer">S/ 000</div>
+          <div class="stock">🟧 Stock: 1 unidad disponible</div>
+          <div class="btn-group">
+            <button class="btn btn-desc" onclick="openModal(this)">Ver descripción</button>
+          </div>
+        </div>
+      </div>
+
       NOTAS:
       - data-thumbnails: Rutas a imágenes adicionales separadas por comas (todas en images/productos/)
       - Si no tienes miniaturas adicionales, omite el atributo data-thumbnails
       - La imagen principal siempre se usa como primera miniatura
       - data-specs: Edita cada "value" con los datos reales del producto
       - Estado: "Sellado / Sin abrir"  o  "Abierto / Exhibido"
+      - Para activar oferta: añadir class="card--offer", data-price-original="S/ XXX",
+        cambiar <div class="price"> por .price-original (tachado) + .price.price--offer (rebajado)
+      - Para quitar oferta: revertir los cambios anteriores
     -->
 
   </div>
@@ -374,6 +402,7 @@
           <!-- Precio -->
           <div class="price-section">
             <div class="price-label">Precio</div>
+            <div class="price-original-big" id="priceOriginalBig"></div>
             <div class="price-big" id="priceBig">S/ 0</div>
             <div class="stock-info">
               <i class="fas fa-cube"></i>
