@@ -152,17 +152,49 @@ Cuando quieras eliminarlo definitivamente, borra el bloque `<div class="card">..
 
 ---
 
+## CÓMO ACTIVAR UNA OFERTA EN UN PRODUCTO
+
+Durante temporadas de descuento, aplica estos cambios a la tarjeta en `index.html`:
+
+**Antes (precio normal):**
+```html
+<div class="card" ...>
+  ...
+  <div class="price">S/ 459</div>
+```
+
+**Durante la oferta:**
+```html
+<div class="card card--offer" data-price-original="S/ 459" ...>
+  ...
+  <div class="price-original">S/ 459</div>
+  <div class="price price--offer">S/ 350</div>
+```
+
+### Qué activa cada cambio
+
+| Cambio | Efecto visual |
+|---|---|
+| `class="card--offer"` | Borde rojo + badge animado "🔥 OFERTA" sobre la imagen |
+| `data-price-original="S/ 000"` | Precio tachado en el modal |
+| `<div class="price-original">` | Precio tachado en la tarjeta |
+| `<div class="price price--offer">` | Precio rebajado en rojo |
+
+**Para quitar la oferta:** revertir los 3 cambios (eliminar `card--offer`, `data-price-original`, y volver a `<div class="price">`).
+
+---
+
 ## PERSONALIZACIÓN RÁPIDA
 
 | Qué cambiar | Archivo | Buscar |
 |---|---|---|
-| Número de WhatsApp | `index.html` y `js/main.js` | `51999999999` |
+| Número de WhatsApp | `index.html` | `51967311920` |
 | Redes sociales | `index.html` | `class="socials"` |
 | Colores del tema | `css/styles.css` | `#ff8a00` |
 | Velocidad carrusel | `js/main.js` | `slideDelay` |
 | Tamaño del logo | `css/styles.css` | `.site-logo` |
 
-> El botón **"Consultar por WhatsApp"** del modal envía automáticamente el nombre de cada figura en el mensaje. Solo debes actualizar el número de teléfono.
+> El botón **"Consultar por WhatsApp"** del modal envía automáticamente el nombre e imagen de cada figura. El número se lee del HTML automáticamente — solo actualízalo en `index.html`.
 
 ---
 
@@ -250,6 +282,28 @@ El sitio ya incluye:
 **Los cambios no se ven en Vercel**
 - Espera 30–60 segundos tras el push
 - Limpia caché del navegador: Ctrl+Shift+R
+
+---
+
+## PUNTOS DE RETORNO (GIT)
+
+El proyecto usa Git para guardar puntos de retorno antes de cambios importantes.
+
+**Ver todos los puntos guardados:**
+```bash
+git log --oneline
+```
+
+**Volver a un punto anterior** (reemplaza `XXXXXXX` con el ID del commit):
+```bash
+git checkout XXXXXXX -- index.html css/styles.css js/main.js
+```
+
+**Crear un nuevo punto de retorno:**
+```bash
+git add index.html css/styles.css js/main.js
+git commit -m "Descripción del estado guardado"
+```
 
 ---
 
