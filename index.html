@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nicolai Store — Tienda de figuras de anime originales en Lima, Perú. One Piece, Dragon Ball, Demon Slayer y más. Stock limitado, 1 unidad por producto. Envíos a todo el Perú.">
+  <meta name="keywords" content="figuras anime, coleccionables anime, figuras originales, one piece figuras, dragon ball figuras, demon slayer figuras, attack on titan figuras, Lima Perú, tienda anime Perú">
+  <meta name="author" content="Nicolai Store">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ff8a00">
+
+  <title>Nicolai Store | Figuras de Anime Originales — Lima, Perú</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo-small.png">
+  <link rel="apple-touch-icon" href="images/logo-small.png">
+
+  <!-- Open Graph (Facebook, WhatsApp, etc.) -->
+  <!-- IMPORTANTE: reemplaza TU-DOMINIO.vercel.app con tu URL real -->
+  <meta property="og:type"        content="website">
+  <meta property="og:site_name"   content="Nicolai Store">
+  <meta property="og:title"       content="Nicolai Store | Figuras de Anime Originales — Lima, Perú">
+  <meta property="og:description" content="Figuras de anime originales y de colección. One Piece, Dragon Ball, Demon Slayer y más. Stock limitado. Envíos a todo el Perú.">
+  <meta property="og:image"       content="https://TU-DOMINIO.vercel.app/images/logo.png">
+  <meta property="og:url"         content="https://TU-DOMINIO.vercel.app">
+  <meta property="og:locale"      content="es_PE">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Nicolai Store | Figuras de Anime Originales">
+  <meta name="twitter:description" content="Figuras de anime originales y de colección en Lima, Perú. Envíos a todo el país.">
+  <meta name="twitter:image"       content="https://TU-DOMINIO.vercel.app/images/logo.png">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Structured Data (reemplaza TU-DOMINIO.vercel.app con tu URL real) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Nicolai Store",
+    "description": "Tienda especializada en figuras de anime originales y de colección en Lima, Perú.",
+    "url": "https://TU-DOMINIO.vercel.app",
+    "logo": "https://TU-DOMINIO.vercel.app/images/logo.png",
+    "image": "https://TU-DOMINIO.vercel.app/images/logo.png",
+    "telephone": "+51967311920",
+    "priceRange": "S/ 100 - S/ 600",
+    "currenciesAccepted": "PEN",
+    "paymentAccepted": "Cash, Transfer",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lima",
+      "addressCountry": "PE"
+    },
+    "sameAs": [
+      "https://www.facebook.com/nicolaistore",
+      "https://www.instagram.com/nicolaistore",
+      "https://www.tiktok.com/@nicolaistore"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header>
+  <div class="header-container">
+    
+    <!-- Logo y Título -->
+    <div class="logo-section">
+      <div class="logo-container">
+        <img src="images/logo.png" alt="Nicolai Store Logo" class="site-logo">
+      </div>
+      <div class="title-wrapper">
+        <span class="flag-emoji">🎌</span>
+        <h1>Nicolai Store</h1>
+        <span class="flag-emoji">🎌</span>
+      </div>
+      <div class="subtitle">
+        <span>🏅 100% Original</span>
+        <span>📦 Envío a todo Perú</span>
+        <span>🔥 Stock limitado</span>
+      </div>
+    </div>
+
+    <!-- Banner Carrusel -->
+    <div class="banner-container">
+      <div class="banner-slider">
+        
+        <!-- Slides del Banner -->
+        <div class="banner-slides">
+          
+          <!-- Slide 1 -->
+          <div class="banner-slide active">
+            <img src="images/banners/banner-1.jpg" alt="Nicolai Store - Figuras Originales de Anime">
+            <div class="banner-overlay">
+              <div class="banner-text">Las mejores figuras de anime</div>
+              <div class="banner-subtext">Productos originales y de colección</div>
+            </div>
+          </div>
+          
+          <!-- Slide 2 -->
+          <div class="banner-slide">
+            <img src="images/banners/banner-2.jpg" alt="Nuevos Arrivals - Figuras Exclusivas">
+            <div class="banner-overlay">
+              <div class="banner-text">Nuevos arrivals cada semana</div>
+              <div class="banner-subtext">Stock limitado - ¡No te lo pierdas!</div>
+            </div>
+          </div>
+          
+          <!-- Slide 3 -->
+          <div class="banner-slide">
+            <img src="images/banners/banner-3.jpg" alt="Envíos a todo el Perú">
+            <div class="banner-overlay">
+              <div class="banner-text">Envíos a todo el Perú</div>
+              <div class="banner-subtext">Compra segura y garantizada</div>
+            </div>
+          </div>
+          
+          <!-- Puedes agregar más slides aquí -->
+          
+        </div>
+        
+        <!-- Controles de navegación -->
+        <div class="banner-controls">
+          <button class="banner-btn" onclick="prevSlide()" aria-label="Banner anterior">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="banner-btn" onclick="nextSlide()" aria-label="Siguiente banner">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        
+        <!-- Indicadores (dots) -->
+        <div class="banner-indicators" id="bannerIndicators">
+          <!-- Los dots se generan dinámicamente con JavaScript -->
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Redes Sociales -->
+    <div class="socials">
+      <a href="https://facebook.com/nicolaistore" target="_blank" rel="noopener" aria-label="Facebook" class="social-btn">
+        <i class="fab fa-facebook"></i> Facebook
+      </a>
+      <a href="https://instagram.com/nicolaistore" target="_blank" rel="noopener" aria-label="Instagram" class="social-btn">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <a href="https://tiktok.com/@nicolaistore" target="_blank" rel="noopener" aria-label="TikTok" class="social-btn">
+        <i class="fab fa-tiktok"></i> TikTok
+      </a>
+      <a href="https://wa.me/51967311920" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-btn">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<!-- ========== CATÁLOGO DE PRODUCTOS ========== -->
+<section id="catalog">
+  <div class="catalog">
+
+    <!-- Producto 1 -->
+    <div class="card"
+         data-thumbnails="images/productos/naruto-vista2.jpg, images/productos/naruto-vista3.jpg, images/productos/naruto-caja.jpg"
+         data-specs='[
+           {"icon":"fas fa-tag",       "label":"Marca",      "value":"Ichiban Kuji"},
+           {"icon":"fas fa-film",      "label":"Franquicia", "value":"Black★Rock Shooter"},
+           {"icon":"fas fa-box-open",  "label":"Estado",     "value":"Abierto / Exhibido"},
+           {"icon":"fas fa-medal",     "label":"Condición",  "value":"Caja 9/10 · Figura 10/10"}
+         ]'>
+      <div class="card-image">
+        <img src="images/productos/onepiece-bonney.jpg" alt="Figura Jewelry Bonney">
+      </div>
+      <div class="card-body">
+        <h3>Itsuki Nakano Flower Apron - Movie: Five Bride Dreams Dreams</h3>
+        <div class="price">S/ 120</div>
+        <div class="stock">🟧 Stock: 1 unidad disponible</div>
+        <div class="btn-group">
+          <button class="btn btn-desc" onclick="openModal(this)">Ver descripción</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 2 -->
+    <div class="card"
+         data-thumbnails="images/productos/zoro-vista2.jpg, images/productos/zoro-vista3.jpg"
+         data-specs='[
+           {"icon":"fas fa-tag",       "label":"Marca",      "value":"Banpresto"},
+           {"icon":"fas fa-film",      "label":"Franquicia", "value":"One Piece"},
+           {"icon":"fas fa-box-open",  "label":"Estado",     "value":"Sellado / Sin abrir"},
+           {"icon":"fas fa-medal",     "label":"Condición",  "value":"Caja 10/10 · Figura 10/10"}
+         ]'>
+      <div class="card-image">
+        <img src="images/productos/zoro-one-piece.jpg" alt="Figura Roronoa Zoro One Piece">
+      </div>
+      <div class="card-body">
+        <h3>Figura One Piece Zoro</h3>
+        <div class="price">S/ 459</div>
+        <div class="stock">🟧 Stock: 1 unidad disponible</div>
+        <div class="btn-group">
+          <button class="btn btn-desc" onclick="openModal(this)">Ver descripción</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 3 -->
+    <div class="card"
+         data-thumbnails="images/productos/goku-vista2.jpg, images/productos/goku-vista3.jpg, images/productos/goku-caja.jpg"
+         data-specs='[
+           {"icon":"fas fa-tag",       "label":"Marca",      "value":"Banpresto"},
+           {"icon":"fas fa-film",      "label":"Franquicia", "value":"Dragon Ball Super"},
+           {"icon":"fas fa-box-open",  "label":"Estado",     "value":"Abierto / Exhibido"},
+           {"icon":"fas fa-medal",     "label":"Condición",  "value":"Caja 8/10 · Figura 10/10"}
+         ]'>
+      <div class="card-image">
+        <img src="images/productos/goku-ultra-instinct.jpg" alt="Figura Goku Ultra Instinct Dragon Ball">
+      </div>
+      <div class="card-body">
+        <h3>Figura Goku Ultra Instinct</h3>
+        <div class="price">S/ 499</div>
+        <div class="stock">🟧 Stock: 1 unidad disponible</div>
+        <div class="btn-group">
+          <button class="btn btn-desc" onclick="openModal(this)">Ver descripción</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 4 -->
+    <div class="card"
+         data-thumbnails="images/productos/luffy-vista2.jpg, images/productos/luffy-vista3.jpg"
+         data-specs='[
+           {"icon":"fas fa-tag",       "label":"Marca",      "value":"Ichiban Kuji"},
+           {"icon":"fas fa-film",      "label":"Franquicia", "value":"One Piece"},
+           {"icon":"fas fa-box-open",  "label":"Estado",     "value":"Sellado / Sin abrir"},
+           {"icon":"fas fa-medal",     "label":"Condición",  "value":"Caja 10/10 · Figura 10/10"}
+         ]'>
+      <div class="card-image">
+        <img src="images/productos/luffy-gear-5.jpg" alt="Figura Monkey D. Luffy Gear 5 One Piece">
+      </div>
+      <div class="card-body">
+        <h3>Figura Luffy Gear 5</h3>
+        <div class="price">S/ 549</div>
+        <div class="stock">🟧 Stock: 1 unidad disponible</div>
+        <div class="btn-group">
+          <button class="btn btn-desc" onclick="openModal(this)">Ver descripción</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 5 -->
+    <div class="card"
+         data-thumbnails="images/productos/tanjiro-vista2.jpg, images/productos/tanjiro-caja.jpg"
+         data-specs='[
+           {"icon":"fas fa-tag",       "label":"Marca",      "value":"Aniplex"},
+           {"icon":"fas fa-film",      "label":"Franquicia", "value":"Demon Slayer"},
+           {"icon":"fas fa-box-open",  "label":"Estado",     "value":"Abierto / Exhibido"},
+           {"icon":"fas fa-medal",     "label":"Condición",  "value":"Caja 9/10 · Figura 10/10"}
+         ]'>
+      <div class="card-image">
+        <img src="images/productos/tanjiro-demon-slayer.jpg" alt="Figura Tanjiro Kamado Demon Slayer">
+      </div>
+      <div class="card-body">
+        <h3>Figura Tanjiro Demon Slayer</h3>
+        <div class="price">S/ 429</div>
+        <div class="stock">🟧 Stock: 1 unidad disponible</div>
+        <div class="btn-group">
+          <button class="btn btn-desc" onclick="openModal(this)">Ver descripción</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Producto 6 -->
+    <div class="card"
+         data-thumbnails="images/productos/eren-vista2.jpg, images/productos/eren-vista3.jpg, images/productos/eren-caja.jpg"
+         data-specs='[
+           {"icon":"fas fa-tag",       "label":"Marca",      "value":"Kotobukiya"},
+           {"icon":"fas fa-film",      "label":"Franquicia", "value":"Attack on Titan"},
+           {"icon":"fas fa-box-open",  "label":"Estado",     "value":"Sellado / Sin abrir"},
+           {"icon":"fas fa-medal",     "label":"Condición",  "value":"Caja 10/10 · Figura 10/10"}
+         ]'>
+      <div class="card-image">
+        <img src="images/productos/eren-attack-titan.jpg" alt="Figura Eren Yeager Attack on Titan">
+      </div>
+      <div class="card-body">
+        <h3>Figura Eren Attack on Titan</h3>
+        <div class="price">S/ 479</div>
+        <div class="stock">🟧 Stock: 1 unidad disponible</div>
+        <div class="btn-group">
+          <button class="btn btn-desc" onclick="openModal(this)">Ver descripción</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+      ========================================
+      PLANTILLA PARA AGREGAR NUEVOS PRODUCTOS
+      ========================================
+      
+      Copia este bloque y modifica los valores:
+      
+      <div class="card"
+           data-thumbnails="images/productos/producto-vista2.jpg, images/productos/producto-caja.jpg"
+           data-specs='[
+             {"icon":"fas fa-tag",       "label":"Marca",      "value":"Nombre marca"},
+             {"icon":"fas fa-film",      "label":"Franquicia", "value":"Nombre franquicia"},
+             {"icon":"fas fa-box-open",  "label":"Estado",     "value":"Sellado / Sin abrir"},
+             {"icon":"fas fa-medal",     "label":"Condición",  "value":"Caja 10/10 · Figura 10/10"}
+           ]'>
+        <div class="card-image">
+          <img src="images/productos/tu-producto.jpg" alt="Descripción del producto">
+        </div>
+        <div class="card-body">
+          <h3>Nombre del Producto</h3>
+          <div class="price">S/ 000</div>
+          <div class="stock">🟧 Stock: 1 unidad disponible</div>
+          <div class="btn-group">
+            <button class="btn btn-desc" onclick="openModal(this)">Ver descripción</button>
+          </div>
+        </div>
+      </div>
+
+      NOTAS:
+      - data-thumbnails: Rutas a imágenes adicionales separadas por comas (todas en images/productos/)
+      - Si no tienes miniaturas adicionales, omite el atributo data-thumbnails
+      - La imagen principal siempre se usa como primera miniatura
+      - data-specs: Edita cada "value" con los datos reales del producto
+      - Estado: "Sellado / Sin abrir"  o  "Abierto / Exhibido"
+    -->
+
+  </div>
+</section>
+
+<!-- ========== MODAL DE PRODUCTO ========== -->
+<div class="modal" id="modal" onclick="closeModalOnOutside(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    
+    <!-- Header del Modal -->
+    <div class="modal-header">
+      <h3 id="modalTitle">Producto</h3>
+      <button class="close-btn" onclick="closeModal()" aria-label="Cerrar modal">×</button>
+    </div>
+    
+    <!-- Cuerpo del Modal -->
+    <div class="modal-body">
+      <div class="modal-grid">
+        
+        <!-- Sección de Imágenes -->
+        <div class="modal-main">
+          <div class="main-image-container">
+            <img id="mainImg" src="images/placeholder.jpg" alt="Imagen del producto">
+          </div>
+          <!-- Las miniaturas se generan dinámicamente desde JavaScript -->
+          <div class="thumbs" id="thumbsContainer"></div>
+        </div>
+        
+        <!-- Sección de Información -->
+        <div class="modal-info">
+          
+          <span class="product-badge">🌟 Producto Original</span>
+          
+          <!-- Especificaciones (se renderizan dinámicamente desde data-specs de cada tarjeta) -->
+          <div class="specs-section" id="specsContainer"></div>
+          
+          <!-- Precio -->
+          <div class="price-section">
+            <div class="price-label">Precio</div>
+            <div class="price-big" id="priceBig">S/ 0</div>
+            <div class="stock-info">
+              <i class="fas fa-cube"></i>
+              <span>Solo 1 unidad disponible</span>
+            </div>
+          </div>
+          
+          <!-- Botones de Acción -->
+          <div class="buttons-section">
+            <a id="wspBtn" class="btn btn-wsp"
+               href="https://wa.me/51967311920?text=Hola,%20me%20interesa%20el%20producto"
+               target="_blank"
+               rel="noopener">
+              <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+            </a>
+            <button class="btn btn-desc" onclick="closeModal()">
+              <i class="fas fa-times"></i> Cerrar
+            </button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-container">
+    
+    <div class="footer-grid">
+      
+      <!-- Sección: Sobre Nosotros -->
+      <div class="footer-section">
+        <h4><i class="fas fa-store"></i> Sobre Nicolai Store</h4>
+        <p>Tienda especializada en figuras de anime originales y de colección.</p>
+        <p>Cada producto es único, con stock limitado de 1 unidad por artículo.</p>
+        <p>📍 Lima, Perú</p>
+      </div>
+      
+      <!-- Sección: Enlaces Rápidos -->
+      <div class="footer-section">
+        <h4><i class="fas fa-link"></i> Enlaces Rápidos</h4>
+        <ul class="footer-links">
+          <li><a href="#catalog"><i class="fas fa-arrow-right"></i> Catálogo</a></li>
+          <li><a href="https://wa.me/51967311920" target="_blank"><i class="fas fa-question-circle"></i> Consultar disponibilidad</a></li>
+          <li><a href="https://wa.me/51967311920" target="_blank"><i class="fas fa-truck"></i> Información de envíos</a></li>
+          <li><a href="https://wa.me/51967311920" target="_blank"><i class="fas fa-shield-alt"></i> Garantía de originalidad</a></li>
+        </ul>
+      </div>
+      
+      <!-- Sección: Redes Sociales -->
+      <div class="footer-section">
+        <h4><i class="fas fa-share-alt"></i> Síguenos</h4>
+        <p>Mantente al día con nuestras últimas figuras y ofertas exclusivas.</p>
+        <div class="footer-social">
+          <a href="https://facebook.com/nicolaistore" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://instagram.com/nicolaistore" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://tiktok.com/@nicolaistore" target="_blank" rel="noopener" aria-label="TikTok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://wa.me/51967311920" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Línea divisoria -->
+    <div class="footer-divider"></div>
+    
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 Nicolai Store. Todos los derechos reservados.</p>
+      <p class="developer-credit">
+        Desarrollado con <span class="heart">❤️</span> por 
+        <a href="https://github.com/tu-usuario" target="_blank" rel="noopener">Tu Nombre</a>
+      </p>
+      <p class="made-with-love">
+        Hecho con pasión para los fans del anime <span class="heart">❤️</span>
+      </p>
+    </div>
+    
+  </div>
+</footer>
+
+<!-- JavaScript -->
+<script src="js/main.js"></script>
+
+</body>
+</html>
