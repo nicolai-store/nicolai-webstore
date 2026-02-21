@@ -59,7 +59,8 @@ Abre `index.html`, busca la sección `CATÁLOGO DE PRODUCTOS` y copia el bloque 
 |---|---|---|
 | Imagen principal | `src="images/productos/..."` | Ruta de la foto principal |
 | Nombre | `<h3>...</h3>` | Nombre completo del producto |
-| Precio | `<div class="price">` | Ej: `S/ 450` |
+| Precio normal | `<div class="price">` | Ej: `S/ 450` |
+| Precio en oferta | `<div class="price price--offer" data-original="S/ 450">` | Precio anterior en `data-original`, precio rebajado como contenido |
 | Miniaturas | `data-thumbnails="..."` | Rutas separadas por comas (dejar vacío si no hay) |
 | Especificaciones | `data-specs='[...]'` | Ver sección siguiente |
 
