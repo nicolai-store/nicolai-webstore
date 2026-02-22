@@ -4,14 +4,35 @@ Esta guía te enseña cómo subir tu sitio a Vercel y cómo actualizarlo cuando 
 
 ---
 
+## ✅ CONFIGURACIÓN ACTUAL (Ya lista)
+
+| Campo | Valor |
+|---|---|
+| **Carpeta local** | `d:/Web Nicolai/GitHub Pages/repogit/prod` |
+| **Repositorio GitHub** | `https://github.com/nicolai-store/nicolai-webstore` |
+| **Rama activa** | `main` |
+| **Vercel** | Lee automáticamente desde `main` |
+
+**El flujo completo ya está configurado.** Para actualizar el sitio solo necesitas:
+
+```bash
+git add .
+git commit -m "descripción del cambio"
+git push
+```
+
+Vercel detecta el push y actualiza el sitio en ~30 segundos. ✨
+
+---
+
 ## 📋 REQUISITOS PREVIOS
 
-Antes de empezar, necesitas:
+*(Ya completados — solo como referencia)*
 
-- [ ] Cuenta en [GitHub](https://github.com) (gratis)
-- [ ] Cuenta en [Vercel](https://vercel.com) (gratis)
-- [ ] Git instalado en tu computadora
-- [ ] Editor de código (VS Code recomendado)
+- [x] Cuenta en [GitHub](https://github.com)
+- [x] Cuenta en [Vercel](https://vercel.com)
+- [x] Git instalado y configurado
+- [x] Repositorio conectado a Vercel
 
 ---
 

@@ -316,7 +316,14 @@ git commit -m "Descripción del estado guardado"
 
 Ver guía completa en [`DEPLOY.md`](DEPLOY.md).
 
-Resumen:
-1. Sube el código a GitHub
-2. Conecta el repositorio en [vercel.com](https://vercel.com)
-3. Cada `git push` actualiza el sitio automáticamente
+**Configuración ya lista:**
+- Repositorio: `github.com/nicolai-store/nicolai-webstore` — rama `main`
+- Vercel lee automáticamente desde `main`
+
+**Para publicar cualquier cambio:**
+```bash
+git add .
+git commit -m "descripción del cambio"
+git push
+```
+El sitio se actualiza solo en ~30 segundos.
