@@ -21,5 +21,13 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "nicolaistore.com" }],
+      "destination": "https://www.nicolaistore.com/$1",
+      "permanent": true
+    }
   ]
 }
