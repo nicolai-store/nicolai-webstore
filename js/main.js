@@ -162,11 +162,24 @@ function openModal(btn) {
   // Renderizar especificaciones independientes del producto
   const specsContainer = document.getElementById('specsContainer');
   specsContainer.innerHTML = '<div class="specs-title">📋 Especificaciones</div>';
-  const specsData = card.dataset.specs ? JSON.parse(card.dataset.specs) : [];
+  let specsData = [];
+  try {
+    specsData = card.dataset.specs ? JSON.parse(card.dataset.specs) : [];
+  } catch (e) {
+    specsData = [];
+  }
   specsData.forEach(spec => {
     const div = document.createElement('div');
     div.className = 'spec';
-    div.innerHTML = `<i class="${spec.icon}"></i><span><strong>${spec.label}:</strong> ${spec.value}</span>`;
+    const icon = document.createElement('i');
+    icon.className = spec.icon;
+    const span = document.createElement('span');
+    const strong = document.createElement('strong');
+    strong.textContent = spec.label + ': ';
+    span.appendChild(strong);
+    span.appendChild(document.createTextNode(spec.value));
+    div.appendChild(icon);
+    div.appendChild(span);
     specsContainer.appendChild(div);
   });
 
