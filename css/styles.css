@@ -12,6 +12,7 @@ body {
   font-family: 'Poppins', sans-serif;
   background: #0e0e11;
   color: #fff;
+  overflow-x: hidden;
 }
 
 /* ========== HEADER ========== */
@@ -1075,6 +1076,7 @@ footer {
   margin-top: 80px;
   border-top: 3px solid #ff8a00;
   position: relative;
+  overflow-x: hidden;
 }
 
 footer::before {
