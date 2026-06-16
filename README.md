@@ -103,6 +103,22 @@ Los íconos son de [Font Awesome 6](https://fontawesome.com/icons). Busca el nom
 
 ---
 
+## CÓMO AGREGAR UN VIDEO DE YOUTUBE AL MODAL
+
+Cada producto puede tener un video embebido (ej. un unboxing) que aparece debajo de las miniaturas al abrir "Ver descripción".
+
+```html
+<div class="card"
+     data-video="https://youtu.be/dQw4w9WgXcQ"
+     ...>
+```
+
+- Acepta una URL completa de YouTube (`youtu.be/...`, `youtube.com/watch?v=...`, `youtube.com/shorts/...`) o solo el ID del video (`dQw4w9WgXcQ`)
+- Si el producto no tiene video, omite el atributo `data-video` por completo
+- El video se carga solo al abrir el modal y se detiene automáticamente al cerrarlo
+
+---
+
 ## CÓMO AGREGAR MINIATURAS AL MODAL
 
 Las miniaturas son imágenes adicionales que aparecen debajo de la foto principal al abrir "Ver descripción".

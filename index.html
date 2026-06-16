@@ -296,6 +296,7 @@
     <div class="card"
          data-thumbnails="https://japandco.net/cdn/shop/files/ICHIBANKUJIDANDADANINTOTHECURSEDHOUSE_-FIGURINEOKARUN_TRANSFORMATION_LOTAJAPANDCO1_700x700.jpg?v=1753168701, https://japandco.net/cdn/shop/files/ICHIBANKUJIDANDADANINTOTHECURSEDHOUSE_-FIGURINEOKARUN_TRANSFORMATION_LOTAJAPANDCO2_700x700.jpg?v=1753168701, https://japandco.net/cdn/shop/files/ICHIBANKUJIDANDADANINTOTHECURSEDHOUSE_-FIGURINEOKARUN_TRANSFORMATION_LOTAJAPANDCO3_700x700.jpg?v=1753168700"
          data-tags="japon"
+         data-video="https://www.youtube.com/shorts/gtCkn-JObok"
          data-specs='[
            {"icon":"fas fa-tag",       "label":"Marca",      "value":"Ichiban Kuji"},
            {"icon":"fas fa-film",      "label":"Franquicia", "value":"Dandadan"},
@@ -514,6 +515,9 @@
         Se pueden poner varias separadas por coma, ej. data-tags="china, exclusivo".
         El botón de filtro correspondiente se genera solo la próxima vez que cargues la página.
       - data-specs: Edita cada "value" con los datos reales del producto
+      - data-video: (opcional) URL de YouTube o ID de video, ej. data-video="https://youtu.be/dQw4w9WgXcQ"
+        o data-video="dQw4w9WgXcQ". Se muestra debajo de las miniaturas en el modal.
+        Si no hay video, omite el atributo.
       - Estado: "Sellado / Sin abrir"  o  "Abierto / Exhibido"
       - Para activar oferta: añadir "card--offer" al class del card,
         y en el precio: class="price price--offer" data-original="S/ PRECIO_ANTES"
@@ -545,6 +549,15 @@
           </div>
           <!-- Las miniaturas se generan dinámicamente desde JavaScript -->
           <div class="thumbs" id="thumbsContainer"></div>
+          <!-- Video de YouTube embebido: se muestra solo si la card trae data-video -->
+          <div class="video-embed" id="videoEmbedContainer" style="display:none;">
+            <iframe id="videoEmbedFrame"
+                    src=""
+                    title="Video del producto"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
         </div>
         
         <!-- Sección de Información -->

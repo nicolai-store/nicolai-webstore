@@ -109,6 +109,18 @@ function resetAutoPlay() {
 // ========== FUNCIONES DEL MODAL ==========
 
 /**
+ * Extrae el ID de video de YouTube a partir de una URL completa o lo
+ * devuelve tal cual si ya es un ID (data-video acepta ambos formatos)
+ * @param {string} input - URL de YouTube o ID de video
+ */
+function getYouTubeId(input) {
+  const value = input.trim();
+  const match = value.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/);
+  if (match) return match[1];
+  return /^[\w-]{11}$/.test(value) ? value : null;
+}
+
+/**
  * Abre el modal con la información del producto
  * @param {HTMLElement} btn - Botón que disparó el evento
  */
@@ -183,6 +195,19 @@ function openModal(btn) {
     specsContainer.appendChild(div);
   });
 
+  // Video de YouTube (opcional, vía data-video en la card)
+  const videoContainer = document.getElementById('videoEmbedContainer');
+  const videoFrame = document.getElementById('videoEmbedFrame');
+  const videoId = card.dataset.video ? getYouTubeId(card.dataset.video) : null;
+
+  if (videoId) {
+    videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
+    videoContainer.style.display = 'block';
+  } else {
+    videoFrame.src = '';
+    videoContainer.style.display = 'none';
+  }
+
   // Actualizar botón de WhatsApp
   const wspBtn = document.getElementById('wspBtn');
   if (card.classList.contains('card--sold')) {
@@ -210,7 +235,10 @@ function openModal(btn) {
 function closeModal() {
   document.getElementById('modal').style.display = 'none';
   document.body.style.overflow = 'auto';
-  
+
+  // Detener la reproducción del video al cerrar el modal
+  document.getElementById('videoEmbedFrame').src = '';
+
   // Reanudar carrusel
   startAutoPlay();
 }
