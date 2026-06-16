@@ -202,11 +202,31 @@
 
 <!-- ========== CATÁLOGO DE PRODUCTOS ========== -->
 <section id="catalog">
-  <div class="catalog">
+
+  <!-- Encabezado del catálogo + filtros -->
+  <div class="catalog-header">
+    <div class="catalog-eyebrow">Colección</div>
+    <h2 class="catalog-title">Catálogo de Productos</h2>
+
+    <!-- Filtros por estado: Todos / Ofertas / Disponibles / Vendidos -->
+    <div class="catalog-filters" id="catalogFilters">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="offer"><i class="fas fa-tag"></i> Ofertas</button>
+      <button class="filter-btn" data-filter="available">Disponibles</button>
+      <button class="filter-btn" data-filter="sold"><i class="fas fa-circle-xmark"></i> Vendidos</button>
+    </div>
+
+    <!-- Filtros por origen/marca, generados desde el data-tags de cada card.
+         Al agregar productos con data-tags="china" aparecerá el botón "China" automáticamente. -->
+    <div class="catalog-tags" id="catalogTags"></div>
+  </div>
+
+  <div class="catalog" id="catalogGrid">
 
     <!-- Producto 1: Jewelry Bonney -->
     <div class="card card--offer"
          data-thumbnails="https://japandco.net/cdn/shop/files/ICHIBANKUJIONEPIECETAKUMINOKEIFUHAKYOKU-FIGURINEJEWELRYBONNEYLOTEJAPANDCO2_700x700.jpg?v=1743790888, https://japandco.net/cdn/shop/files/ICHIBANKUJIONEPIECETAKUMINOKEIFUHAKYOKU-FIGURINEJEWELRYBONNEYLOTEJAPANDCO1_700x700.jpg?v=1743790888, https://japandco.net/cdn/shop/files/ICHIBANKUJIONEPIECETAKUMINOKEIFUHAKYOKU-FIGURINEJEWELRYBONNEYLOTEJAPANDCO3_700x700.jpg?v=1743790888"
+         data-tags="japon"
          data-specs='[
            {"icon":"fas fa-tag",       "label":"Marca",      "value":"Ichiban Kuji"},
            {"icon":"fas fa-film",      "label":"Franquicia", "value":"One Piece"},
@@ -229,6 +249,7 @@
     <!-- Producto 2: Goddess NIKKE: ALICE -->
     <div class="card card--offer"
          data-thumbnails="https://media3.nin-nin-game.com/395004-pos_thickbox/tenitol-goddess-of-victory-nikke-alice-furyu-.jpg, https://media1.nin-nin-game.com/395001-pos_thickbox/tenitol-goddess-of-victory-nikke-alice-furyu-.jpg, https://media3.nin-nin-game.com/395000-pos_thickbox/tenitol-goddess-of-victory-nikke-alice-furyu-.jpg"
+         data-tags="japon"
          data-specs='[
            {"icon":"fas fa-tag",       "label":"Marca",      "value":"Tenitol"},
            {"icon":"fas fa-film",      "label":"Franquicia", "value":"Nikke"},
@@ -251,6 +272,7 @@
     <!-- Producto 3: Momo Ayase -->
     <div class="card"
          data-thumbnails="https://japandco.net/cdn/shop/files/ICHIBANKUJIDANDADANINTOTHECURSEDHOUSE_-FIGURINEMOMOAYASELASTONEJAPANDCO1_700x700.jpg?v=1753168786, https://japandco.net/cdn/shop/files/ICHIBANKUJIDANDADANINTOTHECURSEDHOUSE_-FIGURINEMOMOAYASELASTONEJAPANDCO2_700x700.jpg?v=1753168785, https://japandco.net/cdn/shop/files/ICHIBANKUJIDANDADANINTOTHECURSEDHOUSE_-FIGURINEMOMOAYASELASTONEJAPANDCO4_700x700.jpg?v=1753168785"
+         data-tags="japon"
          data-specs='[
            {"icon":"fas fa-tag",       "label":"Marca",      "value":"Ichiban Kuji"},
            {"icon":"fas fa-film",      "label":"Franquicia", "value":"Dandadan"},
@@ -273,6 +295,7 @@
     <!-- Producto 4: Okarun -->
     <div class="card"
          data-thumbnails="https://japandco.net/cdn/shop/files/ICHIBANKUJIDANDADANINTOTHECURSEDHOUSE_-FIGURINEOKARUN_TRANSFORMATION_LOTAJAPANDCO1_700x700.jpg?v=1753168701, https://japandco.net/cdn/shop/files/ICHIBANKUJIDANDADANINTOTHECURSEDHOUSE_-FIGURINEOKARUN_TRANSFORMATION_LOTAJAPANDCO2_700x700.jpg?v=1753168701, https://japandco.net/cdn/shop/files/ICHIBANKUJIDANDADANINTOTHECURSEDHOUSE_-FIGURINEOKARUN_TRANSFORMATION_LOTAJAPANDCO3_700x700.jpg?v=1753168700"
+         data-tags="japon"
          data-specs='[
            {"icon":"fas fa-tag",       "label":"Marca",      "value":"Ichiban Kuji"},
            {"icon":"fas fa-film",      "label":"Franquicia", "value":"Dandadan"},
@@ -295,6 +318,7 @@
     <!-- Producto 5: Mejiro McQueen -->
     <div class="card"
          data-thumbnails="https://www.goodsmile.com/gsc-webrevo-sdk-storage-prd/product/image/product/20220614/12821/100075/large/029b58cc52c100d7f97d4e59c621c270.jpg, https://www.goodsmile.com/gsc-webrevo-sdk-storage-prd/product/image/product/20220614/12821/100069/large/ca6cf8bc996b537364b0dd52aee35775.jpg, https://www.goodsmile.com/gsc-webrevo-sdk-storage-prd/product/image/product/20220614/12821/100070/large/337df122ee0f7cc773743bd2e2b23af9.jpg"
+         data-tags="japon"
          data-specs='[
            {"icon":"fas fa-tag",       "label":"Marca",      "value":"Figma"},
            {"icon":"fas fa-film",      "label":"Franquicia", "value":"Uma Musume Pretty Derby"},
@@ -317,6 +341,7 @@
     <!-- Producto 6: Agnes Tachyon -->
     <div class="card"
          data-thumbnails="https://media3.nin-nin-game.com/412731-pos_thickbox/ichiban-kuji-b-prize-uma-musume-pretty-derby-9th-edition-agnes-tachyon-2nd-hand-.jpg, https://media2.nin-nin-game.com/412730-pos_thickbox/ichiban-kuji-b-prize-uma-musume-pretty-derby-9th-edition-agnes-tachyon-2nd-hand-.jpg, https://media1.nin-nin-game.com/412729-pos_thickbox/ichiban-kuji-b-prize-uma-musume-pretty-derby-9th-edition-agnes-tachyon-2nd-hand-.jpg"
+         data-tags="japon"
          data-specs='[
            {"icon":"fas fa-tag",       "label":"Marca",      "value":"Ichiban Kuji"},
            {"icon":"fas fa-film",      "label":"Franquicia", "value":"Uma Musume Pretty Derby"},
@@ -339,6 +364,7 @@
     <!-- Producto 7: Crocodile  -->
     <div class="card"
          data-thumbnails="https://m.media-amazon.com/images/I/71GNBbAkBmL._AC_SY879_.jpg, https://m.media-amazon.com/images/I/71F0KKqwyML._AC_SY879_.jpg, https://m.media-amazon.com/images/I/71Wb7BzBqBL._AC_SY879_.jpg"
+         data-tags="japon"
          data-specs='[
            {"icon":"fas fa-tag",       "label":"Marca",      "value":"MegaHouse"},
            {"icon":"fas fa-film",      "label":"Franquicia", "value":"One Piece"},
@@ -361,6 +387,7 @@
     <!-- Producto 8: Death-sensei  -->
     <div class="card"
          data-thumbnails="https://m.media-amazon.com/images/I/41PYdu2kjBL._AC_.jpg, https://m.media-amazon.com/images/I/51VJypYXV0L._AC_.jpg, https://m.media-amazon.com/images/I/41hjwqZrF2L._AC_.jpg"
+         data-tags="japon"
          data-specs='[
            {"icon":"fas fa-tag",       "label":"Marca",      "value":"Alter"},
            {"icon":"fas fa-film",      "label":"Franquicia", "value":"Peace@Pieces"},
@@ -383,6 +410,7 @@
     <!-- Producto 9: Bartholomew  -->
     <div class="card"
          data-thumbnails="https://m.media-amazon.com/images/I/71nXwC2i8vL._AC_SY879_.jpg, https://m.media-amazon.com/images/I/71S66ZxBufL._AC_SY879_.jpg, https://m.media-amazon.com/images/I/61xjamJVMcL._AC_SY879_.jpg"
+         data-tags="japon"
          data-specs='[
            {"icon":"fas fa-tag",       "label":"Marca",      "value":"MegaHouse"},
            {"icon":"fas fa-film",      "label":"Franquicia", "value":"One Piece"},
@@ -405,6 +433,7 @@
     <!-- Producto 10: Rize Luttiva Mente  -->
     <div class="card"
          data-thumbnails="images/productos/rize-back.jfif, https://i.ebayimg.com/images/g/uD0AAOSwNBte~90U/s-l1600.webp, https://i.ebayimg.com/images/g/eukAAOSw2XNe~90W/s-l1600.webp, https://otakumart.co.nz/cdn/shop/products/om-G96288-5_65edb104-0d8f-4cc5-b80f-b54a6a903ca4.jpg?v=1657149716&width=900"
+         data-tags="japon"
          data-specs='[
            {"icon":"fas fa-tag",       "label":"Marca",      "value":"Good Smile Company"},
            {"icon":"fas fa-film",      "label":"Franquicia", "value":"Shuraki Trinity Box"},
@@ -433,6 +462,7 @@
 
       <div class="card"
            data-thumbnails="images/productos/producto-vista2.jpg, images/productos/producto-caja.jpg"
+           data-tags="japon"
            data-specs='[
              {"icon":"fas fa-tag",       "label":"Marca",      "value":"Nombre marca"},
              {"icon":"fas fa-film",      "label":"Franquicia", "value":"Nombre franquicia"},
@@ -456,6 +486,7 @@
 
       <div class="card card--offer"
            data-thumbnails="images/productos/producto-vista2.jpg, images/productos/producto-caja.jpg"
+           data-tags="china"
            data-specs='[
              {"icon":"fas fa-tag",       "label":"Marca",      "value":"Nombre marca"},
              {"icon":"fas fa-film",      "label":"Franquicia", "value":"Nombre franquicia"},
@@ -479,6 +510,9 @@
       - data-thumbnails: Rutas a imágenes adicionales separadas por comas (todas en images/productos/)
       - Si no tienes miniaturas adicionales, omite el atributo data-thumbnails
       - La imagen principal siempre se usa como primera miniatura
+      - data-tags: origen/etiqueta del producto para el filtro de marcas (ej. "japon", "china").
+        Se pueden poner varias separadas por coma, ej. data-tags="china, exclusivo".
+        El botón de filtro correspondiente se genera solo la próxima vez que cargues la página.
       - data-specs: Edita cada "value" con los datos reales del producto
       - Estado: "Sellado / Sin abrir"  o  "Abierto / Exhibido"
       - Para activar oferta: añadir "card--offer" al class del card,

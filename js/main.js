@@ -314,6 +314,114 @@ function sortProducts() {
   [...offers, ...available, ...sold].forEach(card => catalog.appendChild(card));
 }
 
+// ========== FILTROS DEL CATÁLOGO ==========
+
+let activeStatusFilter = 'all';
+let activeTagFilter = 'all';
+
+// Nombres legibles para los tags de origen/marca conocidos
+const TAG_LABELS = {
+  japon: 'Japón',
+  china: 'China',
+};
+
+function tagLabel(tag) {
+  return TAG_LABELS[tag] || (tag.charAt(0).toUpperCase() + tag.slice(1));
+}
+
+/**
+ * Genera los botones de tags (Todas las marcas + uno por cada valor único de data-tags)
+ */
+function initTagFilters() {
+  const tagsContainer = document.getElementById('catalogTags');
+  if (!tagsContainer) return;
+
+  const cards = document.querySelectorAll('.catalog .card');
+  const tags = new Set();
+  cards.forEach(card => {
+    (card.dataset.tags || '').split(',').forEach(t => {
+      const tag = t.trim().toLowerCase();
+      if (tag) tags.add(tag);
+    });
+  });
+
+  tagsContainer.innerHTML = '';
+
+  const allBtn = document.createElement('button');
+  allBtn.className = 'tag-btn active';
+  allBtn.dataset.tag = 'all';
+  allBtn.textContent = 'Todas las marcas';
+  tagsContainer.appendChild(allBtn);
+
+  Array.from(tags).sort().forEach(tag => {
+    const btn = document.createElement('button');
+    btn.className = 'tag-btn';
+    btn.dataset.tag = tag;
+    btn.textContent = tagLabel(tag);
+    tagsContainer.appendChild(btn);
+  });
+}
+
+/**
+ * Aplica los filtros activos (estado + tag) a las tarjetas del catálogo
+ */
+function applyFilters() {
+  const cards = document.querySelectorAll('.catalog .card');
+
+  cards.forEach(card => {
+    const isSold = card.classList.contains('card--sold');
+    const isOffer = card.classList.contains('card--offer');
+    const cardTags = (card.dataset.tags || '').toLowerCase().split(',').map(t => t.trim());
+
+    let statusMatch = true;
+    if (activeStatusFilter === 'offer') statusMatch = isOffer;
+    else if (activeStatusFilter === 'available') statusMatch = !isSold;
+    else if (activeStatusFilter === 'sold') statusMatch = isSold;
+
+    const tagMatch = activeTagFilter === 'all' || cardTags.includes(activeTagFilter);
+    const visible = statusMatch && tagMatch;
+
+    card.classList.toggle('card--hidden', !visible);
+
+    if (visible) {
+      // Reinicia la animación de entrada en cada tarjeta visible
+      card.classList.remove('card--anim');
+      void card.offsetWidth;
+      card.classList.add('card--anim');
+    }
+  });
+}
+
+/**
+ * Inicializa los listeners de los grupos de filtros (estado y tags)
+ */
+function initCatalogFilters() {
+  const statusContainer = document.getElementById('catalogFilters');
+  const tagsContainer = document.getElementById('catalogTags');
+
+  if (statusContainer) {
+    statusContainer.addEventListener('click', function(e) {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      statusContainer.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeStatusFilter = btn.dataset.filter;
+      applyFilters();
+    });
+  }
+
+  if (tagsContainer) {
+    tagsContainer.addEventListener('click', function(e) {
+      const btn = e.target.closest('.tag-btn');
+      if (!btn) return;
+      tagsContainer.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeTagFilter = btn.dataset.tag;
+      applyFilters();
+    });
+  }
+}
+
 // ========== EVENT LISTENERS ==========
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -325,6 +433,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Ordenar productos (vendidos al final)
   sortProducts();
+
+  // Filtros del catálogo (estado + tags de marca/origen)
+  initTagFilters();
+  initCatalogFilters();
+  applyFilters();
 
   // Inicializar carrusel de banners
   initBannerSlider();
