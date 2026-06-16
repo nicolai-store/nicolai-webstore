@@ -201,7 +201,8 @@ function openModal(btn) {
   const videoId = card.dataset.video ? getYouTubeId(card.dataset.video) : null;
 
   if (videoId) {
-    videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
+    const videoParams = 'modestbranding=1&rel=0&iv_load_policy=3&cc_load_policy=0&playsinline=1';
+    videoFrame.src = `https://www.youtube.com/embed/${videoId}?${videoParams}`;
     videoContainer.style.display = 'block';
   } else {
     videoFrame.src = '';
