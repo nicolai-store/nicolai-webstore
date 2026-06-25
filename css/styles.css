@@ -7,6 +7,29 @@
   box-sizing: border-box;
 }
 
+/* ---- Scrollbar personalizado ---- */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #ff8a00 #0e0e11;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0e0e11;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff8a00;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e67600;
+}
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
