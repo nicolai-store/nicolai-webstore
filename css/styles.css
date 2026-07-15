@@ -567,6 +567,35 @@ section {
   display: none;
 }
 
+/* ---- Franja de subastas semanales ---- */
+.auction-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #1a1a1f;
+  border-top: 2px solid #ff8a00;
+  border-bottom: 2px solid #ff8a00;
+  color: #ff8a00;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: clamp(13px, 1.6vw, 16px);
+  letter-spacing: 0.5px;
+  padding: 14px 20px;
+  text-align: center;
+  transition: background 0.3s, color 0.3s;
+}
+
+.auction-banner i {
+  font-size: 1.1rem;
+}
+
+.auction-banner:hover {
+  background: #ff8a00;
+  color: #0e0e11;
+}
+
 .filter-btn,
 .tag-btn {
   background: #1a1a1f;
@@ -1335,6 +1364,14 @@ footer::before {
   background: #ff8a00;
   color: #111;
   transform: translateY(-3px) rotate(5deg);
+}
+
+.footer-auction {
+  color: #ff8a00 !important;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* Línea divisoria */
