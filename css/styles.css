@@ -644,6 +644,35 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+/* ---- Indicador de video disponible ---- */
+.card[data-video]:not([data-video=""]) .card-image::after {
+  content: "\f144";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(14, 14, 17, 0.85);
+  border: 2px solid #ff8a00;
+  color: #ff8a00;
+  border-radius: 50%;
+  font-size: 1rem;
+  z-index: 4;
+  pointer-events: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.35s;
+}
+
+.card[data-video]:not([data-video=""]):hover .card-image::after {
+  transform: scale(1.12);
 }
 
 .card img {
