@@ -24,3 +24,5 @@ Desktop.ini
 # Herramienta de mantenimiento local (NUNCA subir a git/Vercel)
 mantenimiento.html
 
+# Respaldo de imágenes originales sin comprimir (solo local)
+images-original-backup/
