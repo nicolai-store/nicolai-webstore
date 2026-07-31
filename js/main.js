@@ -268,6 +268,78 @@ function setImg(imgElement) {
   imgElement.classList.add('active');
 }
 
+// ========== ZOOM DE IMAGEN PRINCIPAL (lupa desktop + lightbox mobile) ==========
+
+const hasHoverPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+/**
+ * Inicializa la lupa de zoom (solo dispositivos con mouse) y el lightbox
+ * de pantalla completa (click/tap, funciona en todos los dispositivos).
+ */
+function initImageZoom() {
+  const container = document.getElementById('mainImageContainer');
+  const mainImg = document.getElementById('mainImg');
+  const lens = document.getElementById('imgZoomLens');
+  const ZOOM_FACTOR = 1.8;
+
+  if (hasHoverPointer) {
+    container.addEventListener('mouseenter', () => {
+      lens.style.backgroundImage = `url('${mainImg.currentSrc || mainImg.src}')`;
+      lens.classList.add('is-active');
+    });
+
+    container.addEventListener('mousemove', (e) => {
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const lensW = lens.offsetWidth;
+      const lensH = lens.offsetHeight;
+      let lensX = x - lensW / 2;
+      let lensY = y - lensH / 2;
+      lensX = Math.max(0, Math.min(lensX, rect.width - lensW));
+      lensY = Math.max(0, Math.min(lensY, rect.height - lensH));
+
+      lens.style.left = `${lensX}px`;
+      lens.style.top = `${lensY}px`;
+      lens.style.backgroundSize = `${rect.width * ZOOM_FACTOR}px ${rect.height * ZOOM_FACTOR}px`;
+      lens.style.backgroundPosition = `-${x * ZOOM_FACTOR - lensW / 2}px -${y * ZOOM_FACTOR - lensH / 2}px`;
+    });
+
+    container.addEventListener('mouseleave', () => {
+      lens.classList.remove('is-active');
+    });
+  }
+
+  // Click/tap sobre la imagen principal: abre el lightbox a pantalla completa
+  mainImg.addEventListener('click', () => {
+    openImgLightbox(mainImg.currentSrc || mainImg.src);
+  });
+}
+
+/**
+ * Abre el lightbox con la imagen a pantalla completa (pinch-zoom nativo en mobile)
+ * @param {string} src - URL de la imagen a mostrar
+ */
+function openImgLightbox(src) {
+  const lightbox = document.getElementById('imgLightbox');
+  document.getElementById('imgLightboxImg').src = src;
+  lightbox.classList.add('active');
+}
+
+/**
+ * Cierra el lightbox de imagen
+ * @param {Event} event - Evento del clic
+ */
+function closeImgLightbox(event) {
+  if (event) event.stopPropagation();
+  document.getElementById('imgLightbox').classList.remove('active');
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeImgLightbox();
+});
+
 // ========== PARTÍCULAS DEL HEADER ==========
 
 /**
@@ -473,7 +545,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Partículas del header
   initHeaderParticles();
-  
+
+  // Zoom de la imagen principal del modal (lupa desktop + lightbox mobile)
+  initImageZoom();
+
   // Pausar carrusel cuando el usuario está en otra pestaña
   document.addEventListener('visibilitychange', function() {
     if (document.hidden) {

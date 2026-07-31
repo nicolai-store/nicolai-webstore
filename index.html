@@ -701,7 +701,7 @@
            {"icon":"fas fa-tag",       "label":"Marca",      "value":"AniMester"},
            {"icon":"fas fa-film",      "label":"Franquicia", "value":"VTuber - Idol Virtual"},
            {"icon":"fas fa-box-open",  "label":"Estado",     "value":"Abierto / Nunca exhibido"},
-           {"icon":"fas fa-medal",     "label":"Condición",  "value":"La figura está en perfecto estado sin detalles aparentes. La caja se encuentra dañada.. La caja se encuentra un poco dañada."}
+           {"icon":"fas fa-medal",     "label":"Condición",  "value":"La figura está en perfecto estado sin detalles aparentes. La caja se encuentra un poco dañada."}
          ]'>
       <div class="card-image">
         <img src="images/productos/sister-master.jpeg" alt="Virtual Idol: Sister">
@@ -732,7 +732,7 @@
       </div>
       <div class="card-body">
         <h3>Dead Master: -original version-</h3>
-        <div class="price">S/ 450</div>
+        <div class="price">S/ 350</div>
         <div class="stock">🟧 Stock: 1 unidad disponible</div>
         <div class="btn-group">
           <button class="btn btn-desc" onclick="openModal(this)">Ver descripción</button>
@@ -1456,8 +1456,9 @@
         
         <!-- Sección de Imágenes -->
         <div class="modal-main">
-          <div class="main-image-container">
+          <div class="main-image-container" id="mainImageContainer">
             <img id="mainImg" src="images/placeholder.jpg" alt="Imagen del producto">
+            <div class="img-zoom-lens" id="imgZoomLens"></div>
           </div>
           <!-- Las miniaturas se generan dinámicamente desde JavaScript -->
           <div class="thumbs" id="thumbsContainer"></div>
@@ -1509,6 +1510,12 @@
     </div>
     
   </div>
+</div>
+
+<!-- ========== LIGHTBOX: ZOOM DE IMAGEN A PANTALLA COMPLETA (mobile / click) ========== -->
+<div class="img-lightbox" id="imgLightbox" onclick="closeImgLightbox(event)">
+  <button class="img-lightbox-close" onclick="closeImgLightbox(event)" aria-label="Cerrar zoom">×</button>
+  <img id="imgLightboxImg" src="" alt="Imagen ampliada del producto">
 </div>
 
 <!-- ========== FOOTER ========== -->
