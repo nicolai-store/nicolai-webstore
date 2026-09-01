@@ -569,31 +569,86 @@ section {
 
 /* ---- Franja de subastas semanales ---- */
 .auction-banner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  background: #1a1a1f;
-  border-top: 2px solid #ff8a00;
-  border-bottom: 2px solid #ff8a00;
-  color: #ff8a00;
+  gap: 14px;
+  background: linear-gradient(135deg, #ff2d2d, #ff8a00, #ff2d2d);
+  background-size: 200% 200%;
+  color: #fff;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: clamp(13px, 1.6vw, 16px);
+  font-weight: 700;
+  font-size: clamp(14px, 1.8vw, 18px);
   letter-spacing: 0.5px;
-  padding: 14px 20px;
+  padding: 16px 20px;
   text-align: center;
-  transition: background 0.3s, color 0.3s;
+  overflow: hidden;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  animation: auctionGradient 6s ease infinite, auctionGlow 2s ease-in-out infinite;
+  transition: transform 0.3s;
 }
 
-.auction-banner i {
-  font-size: 1.1rem;
+.auction-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  animation: auctionShine 3.2s ease-in-out infinite;
+}
+
+.auction-banner i.fa-gavel {
+  font-size: 1.25rem;
+  animation: auctionBounce 1.4s ease-in-out infinite;
+}
+
+.auction-banner i.fa-facebook {
+  font-size: 1.3rem;
+  background: rgba(255, 255, 255, 0.2);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .auction-banner:hover {
-  background: #ff8a00;
-  color: #0e0e11;
+  transform: scale(1.015);
+}
+
+@keyframes auctionGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+@keyframes auctionGlow {
+  0%, 100% { box-shadow: 0 0 12px rgba(255, 45, 45, 0.4); }
+  50%      { box-shadow: 0 0 26px rgba(255, 138, 0, 0.75); }
+}
+
+@keyframes auctionBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-3px) rotate(-8deg); }
+}
+
+@keyframes auctionShine {
+  0%   { left: -60%; }
+  100% { left: 130%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auction-banner,
+  .auction-banner::before,
+  .auction-banner i.fa-gavel {
+    animation: none;
+  }
 }
 
 .filter-btn,
